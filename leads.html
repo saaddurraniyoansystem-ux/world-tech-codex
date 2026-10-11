@@ -3,69 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sales Hub CRM</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>World Tech Codex CRM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
 <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("shcrm_theme"))||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}</script>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyC_M_5F6ptrIL0Z8tRbLbYsW8lcZPVasjQ",
-    authDomain: "world-tech-codex.firebaseapp.com",
-    projectId: "world-tech-codex",
-    storageBucket: "world-tech-codex.firebasestorage.app",
-    messagingSenderId: "926484509536",
-    appId: "1:926484509536:web:0f4d9b3cff18e413b6e405",
-    measurementId: "G-KPMWKD26V2"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
- <style>
-:root{--bg:#eef1f6;--card:#fff;--tx:#16202e;--mu:#5d6b7e;--bd:#e0e6ef;--pr:#1160c7;--pr2:#0b3d91;--nav:#0a1f44;--in:#f3f6fa;--ok:#12805c;--er:#c0392b;--sh:0 1px 2px rgba(16,32,60,.06),0 4px 14px rgba(16,32,60,.06);--shh:0 12px 30px rgba(16,32,60,.16)}
-:root[data-theme=dark]{--bg:#0f1520;--card:#18202e;--tx:#e9eef6;--mu:#9aa9bd;--bd:#2a3547;--pr:#4f9fe6;--pr2:#2b6fc0;--nav:#0a1220;--in:#202a3b;--sh:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);--shh:0 12px 30px rgba(0,0,0,.45)}
+<style>
+:root{--bg:#eff3f9;--card:#fff;--tx:#0b1424;--mu:#58677d;--bd:#dce4ef;--pr:#1d8bff;--pr2:#0a58c9;--cy:#22d3ee;--side:#050810;--in:#f2f6fb;--ok:#0f9d6e;--er:#d6403a;--sh:0 1px 2px rgba(11,20,36,.06),0 4px 14px rgba(11,20,36,.06);--shh:0 14px 32px rgba(11,20,36,.16)}
+:root[data-theme=dark]{--bg:#070b14;--card:#0e1525;--tx:#e8eef8;--mu:#93a4bd;--bd:#1c2940;--in:#141d31;--sh:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);--shh:0 14px 32px rgba(0,0,0,.55)}
 *{box-sizing:border-box}
-body{margin:0;font:14px/1.5 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+body{margin:0;font:14px/1.5 "DM Sans","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+h1,h2,h3{font-family:Sora,"DM Sans",sans-serif}
 .hide{display:none!important}
 button{font:inherit;cursor:pointer}
-button:focus-visible{outline:2px solid var(--pr);outline-offset:2px}
+button:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
 input,select,textarea{font:inherit;color:var(--tx);background:var(--in);border:1px solid var(--bd);border-radius:8px;padding:9px 11px;width:100%;transition:border-color .2s,box-shadow .2s,background .2s}
-input:hover,select:hover,textarea:hover{border-color:#8fa6c6}
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pr);box-shadow:0 0 0 3px color-mix(in srgb,var(--pr) 22%,transparent);background:var(--card)}
+input:hover,select:hover,textarea:hover{border-color:#7f9bc4}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pr);box-shadow:0 0 0 3px color-mix(in srgb,var(--pr) 25%,transparent);background:var(--card)}
+input[type=checkbox]{width:auto;accent-color:var(--pr)}
 textarea{resize:vertical;min-height:90px}
 label{display:block;font-size:12px;font-weight:600;color:var(--mu);margin:12px 0 4px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px 14px;font-weight:600;transition:transform .15s,box-shadow .2s,border-color .2s,background .2s}
 .btn:hover{transform:translateY(-1px);box-shadow:var(--sh);border-color:var(--pr)}
 .btn:active{transform:none}
-.btn.p{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;border-color:transparent}
-.btn.p:hover{box-shadow:0 8px 20px rgba(17,96,199,.4)}
+.btn.p{background:linear-gradient(135deg,var(--pr2),var(--pr));color:#fff;border-color:transparent}
+.btn.p:hover{box-shadow:0 8px 22px rgba(29,139,255,.45)}
 .btn.d{color:var(--er)}.btn.d:hover{border-color:var(--er)}
-.btn[disabled]{opacity:.6;pointer-events:none}
+.btn[disabled]{opacity:.55;pointer-events:none}
 .btn.wide{width:100%;margin-top:18px;padding:11px}
 .ic{width:17px;height:17px;flex-shrink:0}
 .lnk{background:none;border:0;color:var(--pr);font-weight:600;padding:0}.lnk:hover{text-decoration:underline}
-.c{text-align:center}
+.c{text-align:center}.sp{flex:1}
+img.logo{display:block;border-radius:12px}
 /* auth */
 #auth{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}
-.brand{position:relative;overflow:hidden;color:#fff;padding:56px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(120deg,#0a1f44,#1160c7,#0a1f44);background-size:220% 220%;animation:flow 16s ease infinite}
-.brand::before,.brand::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07);animation:float 10s ease-in-out infinite}
-.brand::before{width:340px;height:340px;top:-90px;right:-90px}
-.brand::after{width:230px;height:230px;bottom:-60px;left:12%;animation-delay:-5s}
+.brand{position:relative;overflow:hidden;color:#fff;padding:56px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(125deg,#03060d,#0a2a63 55%,#03060d);background-size:220% 220%;animation:flow 16s ease infinite}
+.brand::before,.brand::after{content:"";position:absolute;border-radius:50%;animation:float 10s ease-in-out infinite}
+.brand::before{width:380px;height:380px;top:-110px;right:-100px;background:radial-gradient(circle,rgba(34,211,238,.28),transparent 70%)}
+.brand::after{width:300px;height:300px;bottom:-90px;left:8%;background:radial-gradient(circle,rgba(29,139,255,.3),transparent 70%);animation-delay:-5s}
 .brand>*{position:relative;z-index:1}
-.brand h1{font-size:36px;line-height:1.15;margin:18px 0 12px}
-.brand p{opacity:.85;max-width:400px;margin:0 0 22px}
-.brand li{list-style:none;margin:10px 0;padding-left:26px;position:relative;opacity:.95}
-.brand li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:#7fc4ff;box-shadow:0 0 0 4px rgba(127,196,255,.25)}
-.brand ul{padding:0;margin:0}
-.logo{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.brand img.logo{width:96px;height:96px;box-shadow:0 0 40px rgba(34,211,238,.35)}
+.brand h1{font-size:34px;line-height:1.15;margin:22px 0 12px}
+.brand p{opacity:.85;max-width:420px;margin:0 0 22px}
+.brand ul{padding:0;margin:0}.brand li{list-style:none;margin:10px 0;padding-left:26px;position:relative}
+.brand li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--cy);box-shadow:0 0 0 4px rgba(34,211,238,.22)}
 .pane{display:flex;align-items:center;justify-content:center;padding:24px}
 .box{width:100%;max-width:400px;animation:rise .5s ease both}
 .box h2{margin:0 0 4px;font-size:24px}.sub{color:var(--mu);margin:0 0 10px}
@@ -77,73 +56,114 @@ label{display:block;font-size:12px;font-weight:600;color:var(--mu);margin:12px 0
 .demo{margin-top:16px;font-size:12px;color:var(--mu);background:var(--in);border-radius:8px;padding:9px 12px}
 #splash{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:50}
 .spin{width:36px;height:36px;border:4px solid var(--bd);border-top-color:var(--pr);border-radius:50%;animation:spin .8s linear infinite}
-/* app */
-header{background:var(--nav);color:#fff;height:56px;display:flex;align-items:center;gap:12px;padding:0 18px;position:sticky;top:0;z-index:5}
-header b{font-size:16px}header .sp{flex:1}
-.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7fc4ff,#b79bff);color:#0a1f44;display:grid;place-items:center;font-weight:700;flex-shrink:0}
-header .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.3);padding:6px 10px}
-header .btn:hover{background:rgba(255,255,255,.12);border-color:#fff;box-shadow:none}
-.shell{display:flex}
-nav{width:88px;background:var(--card);border-right:1px solid var(--bd);position:sticky;top:56px;height:calc(100vh - 56px);align-self:flex-start;padding-top:8px}
-nav button{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;background:none;border:0;border-left:3px solid transparent;padding:14px 4px;color:var(--mu);font-size:11px;font-weight:600;transition:background .2s,color .2s,border-color .2s}
-nav button .ic{width:22px;height:22px;transition:transform .2s}
-nav button:hover{background:var(--in);color:var(--tx)}nav button:hover .ic{transform:scale(1.15)}
-nav button.on{border-color:var(--pr);color:var(--pr);background:var(--in)}
-main{flex:1;min-width:0;padding:20px}
+/* app shell */
+.app{display:flex;height:100vh}
+aside{width:250px;background:var(--side);color:#aebbd0;display:flex;flex-direction:column;flex-shrink:0;transition:width .25s}
+aside.min{width:68px}
+.sb-h{display:flex;align-items:center;gap:10px;padding:14px;border-bottom:1px solid #121b2c;min-height:64px}
+.sb-h img{width:38px;height:38px;border-radius:10px;flex-shrink:0}
+.sb-h b{color:#fff;font:600 14px/1.15 Sora,sans-serif;white-space:nowrap}.sb-h small{display:block;color:var(--cy);font:500 11px "DM Sans";margin-top:2px}
+.sb-sc{flex:1;overflow-y:auto;padding:8px;scrollbar-width:thin;scrollbar-color:#1c2940 transparent}
+.grp{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:0;color:#6f7f98;font-size:12px;font-weight:600;padding:12px 10px 4px;white-space:nowrap}
+.grp .ic{width:14px;height:14px;transition:transform .2s}.grp.c .ic{transform:rotate(-90deg)}
+.it{display:flex;align-items:center;gap:12px;width:100%;background:none;border:0;color:inherit;padding:10px 12px;border-radius:8px;position:relative;text-align:left;transition:background .2s,color .2s,transform .2s}
+.it .ic{width:20px;height:20px;transition:transform .2s}
+.it:hover{background:#0f1a2e;color:#fff}.it:hover .ic{transform:scale(1.15)}
+.it.on{background:linear-gradient(90deg,rgba(29,139,255,.25),transparent);color:#fff}
+.it.on::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:3px;background:linear-gradient(var(--cy),var(--pr))}
+.cnt{margin-left:auto;font-size:11px;background:#14213a;color:#cfe2ff;border-radius:10px;padding:1px 8px}
+.sb-f{padding:8px;border-top:1px solid #121b2c}
+.sb-f .it{justify-content:flex-start}.sb-f .ic{transition:transform .25s}aside.min .sb-f .ic{transform:rotate(180deg)}
+aside.min .grp,aside.min .lbl,aside.min .sb-h div,aside.min .cnt{display:none}
+aside.min .it{justify-content:center;padding:11px 0}
+.mw{flex:1;min-width:0;display:flex;flex-direction:column}
+.top{height:60px;background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:12px;padding:0 20px;flex-shrink:0}
+.top h1{margin:0;font-size:18px;white-space:nowrap}
+.gs{position:relative;width:min(360px,100%);margin-left:auto}.gs .ic{position:absolute;left:11px;top:11px;color:var(--mu)}.gs input{padding-left:36px}
+.top .btn{padding:7px 10px}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--cy),var(--pr));color:#03101f;display:grid;place-items:center;font-weight:700;flex-shrink:0}
+main{flex:1;overflow:auto;padding:20px}
 main.enter{animation:rise .35s ease both}
-.cmd{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;align-items:center;box-shadow:var(--sh)}
-.cmd .btn{border-color:transparent;background:none}.cmd .btn:hover{background:var(--in);box-shadow:none}.cmd .btn.p{background:linear-gradient(135deg,var(--pr),var(--pr2))}
-.cmd input,.cmd select{width:auto;flex:1;min-width:150px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.cmd{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;align-items:center;box-shadow:var(--sh)}
+.cmd select{width:auto}
+.sbox{position:relative;flex:1;min-width:220px}.sbox .ic{position:absolute;left:11px;top:11px;color:var(--mu)}.sbox input{padding-left:36px}
+.badge{background:var(--pr);color:#fff;border-radius:10px;font-size:11px;padding:0 7px}
+.fp{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:4px 12px;padding:10px 16px 16px}
+.fp label{margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
 .stat{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s}
 .stat:hover{transform:translateY(-3px);box-shadow:var(--shh)}
-.stat b{font-size:26px;display:block;line-height:1.2}.stat small{color:var(--mu);font-weight:500}
+.stat b{font:700 26px/1.2 Sora,sans-serif;display:block}.stat small{color:var(--mu);font-weight:500}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:var(--sh)}
 .card h3{margin:0 0 6px;font-size:15px}
+.card.flush{padding:0;overflow:hidden}
 .tw{overflow-x:auto}table{width:100%;border-collapse:collapse}
 th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
-th{color:var(--mu);font-weight:600;font-size:12px}
+th{color:var(--mu);font-weight:600;font-size:12px;background:var(--in)}th.srt{cursor:pointer;user-select:none}th.srt:hover{color:var(--pr)}
 tbody tr{cursor:pointer;transition:background .15s,box-shadow .15s}
-tbody tr:hover{background:var(--in);box-shadow:inset 3px 0 0 var(--pr)}
-.who{display:flex;align-items:center;gap:10px}.who .av{width:30px;height:30px;font-size:12px}
+tbody tr:hover{background:var(--in);box-shadow:inset 3px 0 0 var(--cy)}
+td.cb,th.cb{width:36px}
+.who{display:flex;align-items:center;gap:10px}.who .av{width:30px;height:30px;font-size:12px}.who small{color:var(--mu)}
 .tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:600;background:var(--in)}
-.r-Hot{background:#fde8e6;color:#b3281b}.r-Warm{background:#fff0d3;color:#a35f00}.r-Cold{background:#e1efff;color:#0b4f9c}
+.s-New{background:#e1efff;color:#0a58c9}.s-Contacted{background:#fff0d3;color:#9a5a00}.s-Qualified{background:#dcf5ea;color:#0b7a55}.s-Lost{background:#fde8e6;color:#b3281b}
+:root[data-theme=dark] .s-New{background:#12315c;color:#9cc9ff}:root[data-theme=dark] .s-Contacted{background:#4a3410;color:#ffd48a}:root[data-theme=dark] .s-Qualified{background:#0f3d30;color:#7ee0b8}:root[data-theme=dark] .s-Lost{background:#4b1d1a;color:#ffaaa3}
+.pgr{display:flex;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--bd);flex-wrap:wrap;color:var(--mu)}
+.pg{width:70px;display:inline-block;padding:5px 8px}.ps{width:auto;padding:6px 8px}
 .hd{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.hd .av{width:54px;height:54px;font-size:20px}
-.hd h2{margin:0;font-size:21px}.hd .meta{margin-left:auto;display:flex;gap:22px;color:var(--mu);font-size:12px}.hd .meta b{display:block;color:var(--tx);font-size:14px}
+.hd h2{margin:0;font-size:21px}.hd .meta{margin-left:auto;display:flex;gap:22px;color:var(--mu);font-size:12px;flex-wrap:wrap}.hd .meta b{display:block;color:var(--tx);font-size:14px}
 .stages{display:flex;margin-top:16px;gap:4px;overflow-x:auto}
 .stages button{flex:1;min-width:92px;background:var(--in);border:0;padding:11px 8px;color:var(--mu);font-weight:600;border-radius:8px;transition:background .25s,color .25s,transform .15s}
-.stages button:hover{transform:translateY(-2px);color:var(--tx)}.stages button.on{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.cols{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}
+.stages button:hover{transform:translateY(-2px);color:var(--tx)}.stages button.on{background:linear-gradient(135deg,var(--pr2),var(--pr));color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0 14px}
+.ph{display:grid;grid-template-columns:128px 1fr;gap:6px}
+.cols{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;align-items:start}
+.row2{display:flex;align-items:center;gap:8px}
+.pc{border:1px solid var(--bd);border-radius:10px;padding:4px 14px 14px;margin-top:10px;background:var(--in);animation:rise .3s ease both}
 .tl{border-left:2px solid var(--bd);padding-left:14px;margin:12px 0 0 4px}.tl div{margin-bottom:12px}.tl small{color:var(--mu);display:block}
 .empty{color:var(--mu);text-align:center;padding:30px}
+.bar{display:grid;grid-template-columns:130px 1fr 40px;align-items:center;gap:10px;margin:8px 0}
+.bar div{background:var(--in);border-radius:6px;height:10px;overflow:hidden}.bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--pr),var(--cy));animation:grow .9s ease both}.bar b{text-align:right}.bar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hello{background:linear-gradient(120deg,#03060d,#0a2a63);color:#fff;border-radius:14px;padding:22px;margin-bottom:16px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:relative;overflow:hidden}
+.hello::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.35),transparent 70%)}
+.hello h2{margin:0 0 4px}.hello p{margin:0;opacity:.8}.hello .btn{position:relative;z-index:1}
 .tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .tc{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:var(--sh);transition:transform .25s,box-shadow .25s,border-color .25s}
-.tc:hover{transform:translateY(-5px);box-shadow:var(--shh);border-color:var(--pr)}
-.thumb{height:190px;overflow:hidden;background:#f3f5f9}
+.tc:hover{transform:translateY(-5px);box-shadow:var(--shh);border-color:var(--cy)}
+.thumb{height:190px;overflow:hidden;background:#eef3fa}
 .thumb iframe{width:620px;height:460px;border:0;transform:scale(.42);transform-origin:0 0;pointer-events:none;transition:transform .35s}
 .tc:hover .thumb iframe{transform:scale(.45)}
-.tc div.in{padding:12px 14px}.tc b{display:block}.tc small{color:var(--mu)}
+.tc .in{padding:12px 14px}.tc b{display:block}.tc small{color:var(--mu)}
 iframe.pv{width:100%;height:420px;border:1px solid var(--bd);border-radius:10px;background:#fff}
 .code{font-family:Consolas,"Courier New",monospace;font-size:12.5px;min-height:300px;white-space:pre}
-.chips span{display:inline-block;background:var(--in);border:1px solid var(--bd);border-radius:6px;padding:2px 8px;margin:4px 4px 0 0;cursor:pointer;font-size:12px;transition:background .15s,border-color .15s}
+.chips span{display:inline-block;background:var(--in);border:1px solid var(--bd);border-radius:6px;padding:2px 8px;margin:4px 4px 0 0;cursor:pointer;font-size:12px;transition:background .15s,border-color .15s,color .15s}
 .chips span:hover{background:var(--pr);color:#fff;border-color:var(--pr)}
+.rl{position:absolute;left:0;right:0;top:100%;background:var(--card);border:1px solid var(--bd);border-radius:10px;box-shadow:var(--shh);z-index:7;max-height:260px;overflow:auto}
+.rl div{padding:9px 12px;cursor:pointer}.rl div:hover{background:var(--in)}.rl small{color:var(--mu)}
 .hint{font-size:12px;color:var(--mu);margin:8px 0 0}
-#toasts{position:fixed;right:16px;top:70px;z-index:60;display:flex;flex-direction:column;gap:8px}
-.toast{padding:10px 16px;border-radius:10px;color:#fff;background:#12805c;box-shadow:var(--shh);max-width:320px;animation:slide .3s ease both}
-.toast.er{background:#c0392b}
+#toasts{position:fixed;right:16px;top:74px;z-index:60;display:flex;flex-direction:column;gap:8px}
+.toast{padding:10px 16px;border-radius:10px;color:#fff;background:#0f9d6e;box-shadow:var(--shh);max-width:340px;animation:slide .3s ease both}
+.toast.er{background:#d6403a}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes slide{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
 @keyframes flow{50%{background-position:100% 50%}}
 @keyframes float{50%{transform:translateY(26px)}}
 @keyframes spin{to{transform:rotate(360deg)}}
+@keyframes grow{from{width:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-@media(max-width:850px){
- #auth{grid-template-columns:1fr}.brand{padding:32px 24px}.brand h1{font-size:26px}.brand ul{display:none}
- .shell{display:block}
- nav{position:fixed;bottom:0;left:0;right:0;top:auto;width:100%;height:auto;display:flex;border-right:0;border-top:1px solid var(--bd);z-index:6;padding:0}
- nav button{border-left:0;border-top:3px solid transparent;padding:8px 2px}nav button.on{border-top-color:var(--pr)}
- main{padding:12px 12px 90px}.grid,.cols{grid-template-columns:1fr}.hd .meta{margin-left:0;width:100%}
- header .un{display:none}
+@media(max-width:900px){
+ #auth{grid-template-columns:1fr}.brand{padding:28px 24px}.brand h1{font-size:24px}.brand ul{display:none}.brand img.logo{width:64px;height:64px}
+ .app{display:block;height:auto}
+ aside,aside.min{position:fixed;left:0;right:0;bottom:0;width:100%;height:64px;flex-direction:row;z-index:8;border-top:1px solid #121b2c}
+ .sb-h,.grp,.sb-f,.cnt{display:none!important}
+ .sb-sc{display:flex;overflow-x:auto;overflow-y:hidden;padding:4px}
+ .gi,.gi.hide{display:flex!important}
+ .it,aside.min .it{flex-direction:column;gap:2px;font-size:11px;padding:6px 14px;min-width:68px}
+ aside.min .lbl{display:inline}
+ .mw{display:block}.top{position:sticky;top:0;z-index:5;padding:0 12px}.gs{display:none}.top .sp{display:block}
+ main{overflow:visible;padding:12px 12px 84px}
+ .cols,.g2{grid-template-columns:1fr}.hd .meta{margin-left:0;width:100%}
+ .bar{grid-template-columns:100px 1fr 34px}
 }
 </style>
 </head>
@@ -152,13 +172,13 @@ iframe.pv{width:100%;height:420px;border:1px solid var(--bd);border-radius:10px;
 
 <div id="auth" class="hide">
  <section class="brand">
-  <div class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v12H3zM8 7V5h8v2"/></svg></div>
-  <h1>Manage every lead,<br>from any device.</h1>
-  <p>Track companies, move them through your sales stages and email them with ready-made designs.</p>
-  <ul><li>Your data is saved to your account</li><li>Login from your phone, laptop or office PC</li><li>Custom HTML email templates</li></ul>
+  <img class="logo" alt="World Tech Codex">
+  <h1>All your leads.<br>One powerful CRM.</h1>
+  <p>Find any company among thousands in seconds, track every stage and send designed emails straight from your account.</p>
+  <ul><li>Your data is saved to your account</li><li>Login from your phone, laptop or office PC</li><li>Filters, search and CSV import for large lead lists</li></ul>
  </section>
  <section class="pane"><div class="box">
-  <h2>Sales Hub CRM</h2><p class="sub">Sign in to manage your leads</p>
+  <h2>World Tech Codex CRM</h2><p class="sub">Sign in to manage your leads</p>
   <div class="tabs"><button data-t="login" class="on">Login</button><button data-t="signup">Sign up</button><button data-t="forgot">Forgot password</button></div>
   <form id="af" novalidate></form>
   <div id="authMsg" class="msg"></div>
@@ -166,57 +186,74 @@ iframe.pv{width:100%;height:420px;border:1px solid var(--bd);border-radius:10px;
  </div></section>
 </div>
 
-<div id="app" class="hide">
- <header><b>Sales Hub CRM</b><span class="sp"></span><span class="un" id="who"></span><div class="av" id="av"></div><button class="btn" id="logout" title="Logout" aria-label="Logout"></button></header>
- <div class="shell">
-  <nav id="nav"></nav>
+<div id="app" class="app hide">
+ <aside id="aside">
+  <div class="sb-h"><img class="logo" alt=""><div><b>World Tech Codex</b><small>Sales CRM</small></div></div>
+  <div class="sb-sc" id="sbs"></div>
+  <div class="sb-f"><button class="it" id="coll" title="Collapse menu"></button></div>
+ </aside>
+ <div class="mw">
+  <div class="top"><h1 id="ttl"></h1><div class="gs" id="gsw"></div><span class="sp"></span><button class="btn" id="thm" title="Switch dark / light"></button><span id="who" style="font-weight:600"></span><div class="av" id="av"></div><button class="btn" id="logout" title="Logout" aria-label="Logout"></button></div>
   <main id="main"></main>
  </div>
 </div>
 <div id="toasts"></div>
 
 <script type="module">
-/* ============ SETTINGS ============ */
-// 1) Paste your Firebase web app config here to enable accounts that work on every device.
-const FIREBASE_CONFIG={apiKey:"",authDomain:"",projectId:"",appId:""};
-// 2) Web3Forms access key used by the Send email button.
-const W3F_KEY="8eab78cf-3828-4528-b03d-a69bb8acd562";
-// 3) EmailJS: sends the email to the LEAD from your connected Gmail, with the HTML design. Leave empty to use Web3Forms (goes to your own inbox only).
-const EMAILJS={
- publicKey:"ZsVRQknsJwYJz6WJj",
- serviceId:"service_tn0uz4j",
- templateId:"template_hjmcflb", // default, used for custom templates
- templates:{t1:"template_hjmcflb",t2:"template_27rhs7p"} // CRM template id -> EmailJS template id. Add more here later.
-};
+/* ================= SETTINGS ================= */
+// 1) Firebase web config (needed for login from every device). Leave empty for demo mode.
+const FIREBASE_CONFIG={apiKey:"AIzaSyC_M_5F6ptrIL0Z8tRbLbYsW8lcZPVasjQ",authDomain:"world-tech-codex.firebaseapp.com",projectId:"world-tech-codex",storageBucket:"world-tech-codex.firebasestorage.app",messagingSenderId:"926484509536",appId:"1:926484509536:web:0f4d9b3cff18e413b6e405"};
+// 2) EmailJS: sends email to the LEAD from your connected Gmail. Template content must be only: {{{message_html}}}
+const EMAILJS={publicKey:"ZsVRQknsJwYJz6WJj",serviceId:"service_tn0uz4j",templateId:"template_hjmcflb"};
+// 3) Company details used in emails and the CRM
+const CO={name:"World Tech Codex",site:"https://worldtechcodex.com",domain:"worldtechcodex.com",
+ facebook:"https://facebook.com/worldtechcodex",instagram:"https://instagram.com/worldtechcodex",linkedin:"https://www.linkedin.com/company/world-tech-codex",youtube:"https://youtube.com/@worldtechcodex",
+ whatsapp:"" /* e.g. 923001234567 */,founder:"Saad Durrani",founderLinkedin:"https://www.linkedin.com/in/saad-durrani-developer/",
+ logo:"" /* public https URL of your logo.png to show it inside emails */};
+// 4) Dropdown options (edit freely)
+const INDUSTRIES=["Dental Clinics","IT & Software","Crypto & Blockchain","Real Estate","Healthcare","Education","E-commerce","Restaurants & Food","Manufacturing","Other"];
+const BRANDS=["World Tech Codex","Dental Website","Crypto Website","Other Brand"];
+const SOURCES=["Web","LinkedIn","Cold outreach","Referral","Phone","Email","Event","Other"];
+const STAGES=["Qualify","Develop","Propose","Close"],STATUSES=["New","Contacted","Qualified","Lost"];
+const LOGO="data:image/png;base64,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";
 
-/* ============ HELPERS ============ */
+/* ================= HELPERS ================= */
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const lg=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}};
 const ls=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}};
-const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
 const clone=o=>JSON.parse(JSON.stringify(o));
-const I={leads:"M3 7h18v12H3zM8 7V5h8v2",mail:"M3 5h18v14H3zM3 6l9 7 9-7",tpl:"M4 4h16v16H4zM4 9h16M10 9v11",user:"M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c0-4 4-6 8-6s8 2 8 6",plus:"M12 5v14M5 12h14",trash:"M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13",save:"M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6",back:"M15 5l-7 7 7 7",send:"M4 12l16-8-6 16-3-7z",copy:"M8 8h12v12H8zM4 4h12v3M4 4v12h3",out:"M9 4H4v16h5M16 8l4 4-4 4M20 12H9",dl:"M12 4v12M7 11l5 5 5-5M5 20h14",ext:"M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"};
+const deb=(f,ms=200)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>f(...a),ms)}};
+const I={dash:"M3 3h8v8H3zM13 3h8v5h-8zM13 10h8v11h-8zM3 13h8v8H3z",leads:"M3 7h18v12H3zM8 7V5h8v2",user:"M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c0-4 4-6 8-6s8 2 8 6",activity:"M3 12h4l3-8 4 16 3-8h4",mail:"M3 5h18v14H3zM3 6l9 7 9-7",tpl:"M4 4h16v16H4zM4 9h16M10 9v11",cog:"M12 15a3 3 0 100-6 3 3 0 000 6zM4 12h2M18 12h2M12 4v2M12 18v2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4",plus:"M12 5v14M5 12h14",trash:"M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13",save:"M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6",back:"M15 5l-7 7 7 7",send:"M4 12l16-8-6 16-3-7z",copy:"M8 8h12v12H8zM4 4h12v3M4 4v12h3",out:"M9 4H4v16h5M16 8l4 4-4 4M20 12H9",dl:"M12 4v12M7 11l5 5 5-5M5 20h14",up:"M12 16V4M7 9l5-5 5 5M5 20h14",ext:"M14 4h6v6M20 4l-9 9M18 14v6H4V6h6",search:"M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4",filter:"M3 5h18l-7 8v6l-4-2v-4z",chev:"M6 9l6 6 6-6",left:"M15 5l-7 7 7 7",theme:"M12 3a9 9 0 100 18V3z",x:"M6 6l12 12M18 6L6 18"};
 const ic=n=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${I[n]}"/></svg>`;
-function toast(t,er){const d=document.createElement("div");d.className="toast"+(er?" er":"");d.textContent=t;$("#toasts").appendChild(d);setTimeout(()=>d.remove(),3200)}
-const FR={"auth/email-already-in-use":"This email is already registered. Please login.","auth/invalid-credential":"Incorrect email or password.","auth/wrong-password":"Incorrect email or password.","auth/user-not-found":"No account found with this email.","auth/weak-password":"Password must be at least 6 characters.","auth/invalid-email":"Enter a valid email address.","auth/too-many-requests":"Too many attempts. Try again later.","auth/network-request-failed":"No internet connection.","permission-denied":"Permission denied. Check your Firestore rules."};
+function toast(t,er){const d=document.createElement("div");d.className="toast"+(er?" er":"");d.textContent=t;$("#toasts").appendChild(d);setTimeout(()=>d.remove(),3600)}
+const FR={"auth/email-already-in-use":"This email is already registered. Please login.","auth/invalid-credential":"Incorrect email or password.","auth/wrong-password":"Incorrect email or password.","auth/user-not-found":"No account found with this email.","auth/weak-password":"Password must be at least 6 characters.","auth/invalid-email":"Enter a valid email address.","auth/too-many-requests":"Too many attempts. Try again later.","auth/network-request-failed":"No internet connection.","permission-denied":"Permission denied. Check your Firestore rules.","auth/unauthorized-domain":"This website is not authorized in Firebase. Add it under Authentication > Settings > Authorized domains."};
 const em=e=>FR[e?.code]||e?.message||"Something went wrong.";
-const countUp=el=>{const n=+el.dataset.n;if(!n||matchMedia("(prefers-reduced-motion:reduce)").matches){el.textContent=n;return}let s=null;const f=t=>{s??=t;const p=Math.min((t-s)/600,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));p<1&&requestAnimationFrame(f)};requestAnimationFrame(f)};
+const countUp=el=>{const n=+el.dataset.n;if(!n||matchMedia("(prefers-reduced-motion:reduce)").matches){el.textContent=n.toLocaleString();return}let s=null;const f=t=>{s??=t;const p=Math.min((t-s)/600,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString();p<1&&requestAnimationFrame(f)};requestAnimationFrame(f)};
+const MAIL=/^\S+@\S+\.\S+$/;
 
-/* ============ EMAIL TEMPLATES (built-in) ============ */
-const bt=(c,t)=>`<p><a href="mailto:{{senderEmail}}?subject=Call%20with%20World%20Tech%20Codex" style="display:inline-block;background:${c};color:#ffffff;padding:11px 22px;border-radius:6px;text-decoration:none;font-weight:bold">${t}</a></p>`;
-const T=(c,h,b)=>`<div style="background:#f3f5f9;padding:24px 12px;font-family:Arial,Helvetica,sans-serif"><table align="center" width="560" style="max-width:100%;background:#ffffff;border-radius:10px;overflow:hidden"><tr><td style="background:${c};color:#ffffff;padding:28px 30px;font-size:22px;font-weight:bold">${h}</td></tr><tr><td style="padding:28px 30px;color:#26303f;font-size:15px;line-height:1.65">${b}</td></tr><tr><td style="padding:16px 30px;background:#f3f5f9;color:#7a8696;font-size:12px">Sent by {{sender}} &middot; {{senderEmail}}</td></tr></table></div>`;
-// To add a new built-in design later: push another object here (id must be unique).
+/* countries: name|dial code */
+const COUNTRIES="Afghanistan|93,Albania|355,Algeria|213,Argentina|54,Armenia|374,Australia|61,Austria|43,Azerbaijan|994,Bahrain|973,Bangladesh|880,Belarus|375,Belgium|32,Bolivia|591,Bosnia and Herzegovina|387,Brazil|55,Brunei|673,Bulgaria|359,Cambodia|855,Cameroon|237,Canada|1,Chile|56,China|86,Colombia|57,Costa Rica|506,Croatia|385,Cuba|53,Cyprus|357,Czech Republic|420,Denmark|45,Dominican Republic|1,Ecuador|593,Egypt|20,El Salvador|503,Estonia|372,Ethiopia|251,Finland|358,France|33,Georgia|995,Germany|49,Ghana|233,Greece|30,Guatemala|502,Honduras|504,Hong Kong|852,Hungary|36,Iceland|354,India|91,Indonesia|62,Iran|98,Iraq|964,Ireland|353,Israel|972,Italy|39,Ivory Coast|225,Jamaica|1,Japan|81,Jordan|962,Kazakhstan|7,Kenya|254,Kuwait|965,Kyrgyzstan|996,Laos|856,Latvia|371,Lebanon|961,Libya|218,Lithuania|370,Luxembourg|352,Malaysia|60,Maldives|960,Malta|356,Mauritius|230,Mexico|52,Moldova|373,Mongolia|976,Morocco|212,Mozambique|258,Myanmar|95,Nepal|977,Netherlands|31,New Zealand|64,Nigeria|234,North Macedonia|389,Norway|47,Oman|968,Pakistan|92,Palestine|970,Panama|507,Paraguay|595,Peru|51,Philippines|63,Poland|48,Portugal|351,Qatar|974,Romania|40,Russia|7,Rwanda|250,Saudi Arabia|966,Senegal|221,Serbia|381,Singapore|65,Slovakia|421,Slovenia|386,Somalia|252,South Africa|27,South Korea|82,Spain|34,Sri Lanka|94,Sudan|249,Sweden|46,Switzerland|41,Syria|963,Taiwan|886,Tajikistan|992,Tanzania|255,Thailand|66,Tunisia|216,Turkey|90,Turkmenistan|993,Uganda|256,Ukraine|380,United Arab Emirates|971,United Kingdom|44,United States|1,Uruguay|598,Uzbekistan|998,Venezuela|58,Vietnam|84,Yemen|967,Zambia|260,Zimbabwe|263".split(",").map(s=>{const[n,c]=s.split("|");return{n,c}});
+const dial=n=>(COUNTRIES.find(x=>x.n===n)||{}).c||"";
+
+/* ================= EMAIL DESIGNS ================= */
+const bt=(c,t)=>`<p style="margin:18px 0"><a href="mailto:{{senderEmail}}?subject=Call%20with%20${encodeURIComponent(CO.name)}" style="display:inline-block;background:${c};color:#ffffff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:bold">${t}</a></p>`;
+const SOC=(n,u,i)=>u?`<a href="${u}" target="_blank" style="text-decoration:none;margin:0 6px"><img src="https://img.icons8.com/color/48/${i}.png" width="32" height="32" alt="${n}" style="border:0"></a>`:"";
+const FOOT=`<table role="presentation" align="center" width="560" style="max-width:100%"><tr><td align="center" style="padding:22px 0 6px;color:#26303f;font-size:14px;font-weight:bold">Follow ${CO.name}</td></tr><tr><td align="center" style="padding:6px 0 14px">${SOC("Facebook",CO.facebook,"facebook-new")}${SOC("Instagram",CO.instagram,"instagram-new")}${SOC("LinkedIn",CO.linkedin,"linkedin")}${SOC("YouTube",CO.youtube,"youtube-play")}${CO.whatsapp?SOC("WhatsApp","https://wa.me/"+CO.whatsapp,"whatsapp"):""}</td></tr><tr><td align="center" style="color:#7a8696;font-size:12px;line-height:1.7;padding-bottom:6px">&copy; ${CO.name}. All rights reserved.<br><a href="${CO.site}" target="_blank" style="color:#1d8bff;text-decoration:none">${CO.domain}</a><br>Not interested? Just reply STOP and we will not contact you again.</td></tr></table>`;
+const ABOUT=`<table role="presentation" align="center" width="560" style="max-width:100%;margin-top:16px;background:#ffffff;border-radius:10px;overflow:hidden"><tr><td style="background:#050810;color:#22d3ee;padding:16px 30px;font-size:16px;font-weight:bold">About ${CO.name}</td></tr><tr><td style="padding:18px 30px;color:#26303f;font-size:14px;line-height:1.7">${CO.name} is a technology company that helps businesses grow with modern software and digital solutions. We focus on quality work, clear communication and long-term partnerships.<br><br>Founded by <a href="${CO.founderLinkedin}" target="_blank" style="color:#1d8bff;text-decoration:none">${CO.founder}</a>. Visit us at <a href="${CO.site}" target="_blank" style="color:#1d8bff;text-decoration:none">${CO.domain}</a>.</td></tr></table>`;
+const T=(c,h,b,extra="")=>`<div style="background:#eef3fa;padding:24px 12px;font-family:Arial,Helvetica,sans-serif"><table align="center" width="560" style="max-width:100%;background:#ffffff;border-radius:10px;overflow:hidden"><tr><td style="background:${c};color:#ffffff;padding:26px 30px;font-size:22px;font-weight:bold">${CO.logo?`<img src="${CO.logo}" width="40" height="40" alt="" style="vertical-align:middle;margin-right:10px;border-radius:8px">`:""}${h}</td></tr><tr><td style="padding:28px 30px;color:#26303f;font-size:15px;line-height:1.7">${b}</td></tr><tr><td style="padding:14px 30px;background:#f3f6fb;color:#7a8696;font-size:12px">Sent by {{sender}} &middot; {{senderEmail}}</td></tr></table>${extra}${FOOT}</div>`;
+// To add a new built-in design later: push another object here (id must be unique), then use "Restore built-in designs".
 const DEFTPL=[
- {id:"t1",name:"Introduction",subject:"Introduction from {{sender}} - {{company}}",html:T("#1160c7","Let's work together",`<p>Dear {{contact}},</p><p>I am {{sender}} from <b>World Tech Codex</b>. I would like to introduce our services to <b>{{company}}</b> and explore how we can help your business grow.</p><p>Could we schedule a short call this week?</p>${bt("#1160c7","Book a call")}<p>Best regards,<br>{{sender}}<br>World Tech Codex</p>`)},
- {id:"t2",name:"Follow-up",subject:"Following up - {{company}}",html:T("#1160c7","Just following up",`<p style="margin:0 0 14px">Hi {{contact}},</p><p style="margin:0 0 14px">I hope you are doing well. I reached out earlier to introduce <b>World Tech Codex</b>, and I wanted to follow up in case my message got buried in your inbox.</p><p style="margin:0 0 14px">We would love to understand the goals of <b>{{company}}</b> and share how we can help you move faster with the right technology.</p><p style="margin:0 0 20px">Would you have 15 minutes this week for a quick call?</p>${bt("#1160c7","Schedule a call")}<p style="margin:0 0 14px">If now is not the right time, just let me know and I will check back later.</p><p style="margin:0">Best regards,<br><b>{{sender}}</b><br>World Tech Codex</p>`)},
- {id:"t3",name:"Proposal",subject:"Proposal for {{company}}",html:T("#0a1f44","Your proposal is ready",`<p>Dear {{contact}},</p><p>Thank you for your time. Our proposal for <b>{{company}}</b> is ready, and I would be happy to walk you through the details.</p>${bt("#0a1f44","View proposal")}<p>Kind regards,<br>{{sender}}</p>`)},
- {id:"t4",name:"Thank you",subject:"Thank you, {{contact}}",html:T("#12805c","Thank you!",`<p>Dear {{contact}},</p><p>Thank you for choosing to work with us. We are delighted to support <b>{{company}}</b> and look forward to a great partnership.</p><p>Warm regards,<br>{{sender}}</p>`)}
+ {id:"t1",name:"Introduction",subject:"Introduction from {{sender}} - {{company}}",html:T("#0a3d91","Let's work together",`<p>Dear {{contact}},</p><p>I am {{sender}} from <b>${CO.name}</b>. I would like to introduce our services to <b>{{company}}</b> and explore how we can help your business grow online.</p><p>Could we schedule a short call this week?</p>${bt("#1d8bff","Book a call")}<p>Best regards,<br><b>{{sender}}</b><br>${CO.name}</p>`,ABOUT)},
+ {id:"t2",name:"Follow-up",subject:"Following up - {{company}}",html:T("#1d8bff","Just following up",`<p style="margin:0 0 14px">Hi {{contact}},</p><p style="margin:0 0 14px">I hope you are doing well. I reached out earlier to introduce <b>${CO.name}</b>, and I wanted to follow up in case my message got buried in your inbox.</p><p style="margin:0 0 14px">We would love to understand the goals of <b>{{company}}</b> and share how we can help you move faster with the right technology.</p><p style="margin:0">Would you have 15 minutes this week for a quick call?</p>${bt("#1d8bff","Schedule a call")}<p style="margin:0 0 14px">If now is not the right time, just let me know and I will check back later.</p><p style="margin:0">Best regards,<br><b>{{sender}}</b><br>${CO.name}</p>`)},
+ {id:"t3",name:"Proposal",subject:"Proposal for {{company}}",html:T("#050810","Your proposal is ready",`<p>Dear {{contact}},</p><p>Thank you for your time. Our proposal for <b>{{company}}</b> is ready, and I would be happy to walk you through the details.</p>${bt("#1d8bff","Discuss the proposal")}<p>Kind regards,<br><b>{{sender}}</b><br>${CO.name}</p>`)},
+ {id:"t4",name:"Thank you",subject:"Thank you, {{contact}}",html:T("#0e7490","Thank you!",`<p>Dear {{contact}},</p><p>Thank you for choosing to work with us. We are delighted to support <b>{{company}}</b> and look forward to a great partnership.</p><p>Warm regards,<br><b>{{sender}}</b><br>${CO.name}</p>`)}
 ];
-const SAMPLE={contact:"Ali Khan",company:"Acme Ltd",email:"ali@acme.com",phone:"0300 0000000"};
-const MERGE=["contact","company","sender","senderEmail","email","phone"];
+const SAMPLE={company:"Bright Smile Dental Clinic",city:"Karachi",country:"Pakistan",website:"brightsmile.com",industry:"Dental Clinics",email:"info@brightsmile.com",persons:[{name:"Ali Khan",email:"ali@brightsmile.com"}]};
+const MERGE=["contact","company","city","country","website","industry","sender","senderEmail"];
 
-/* ============ BACKEND (Firebase or local demo) ============ */
+/* ================= BACKEND ================= */
 const useFB=!!FIREBASE_CONFIG.apiKey;
 async function makeBackend(){
  if(useFB){
@@ -229,38 +266,53 @@ async function makeBackend(){
    reset:e=>A.sendPasswordResetEmail(au,e),
    logout:()=>A.signOut(au),
    watch:cb=>A.onAuthStateChanged(au,u=>cb(u&&{id:u.uid,name:u.displayName||u.email.split("@")[0],email:u.email})),
-   load:async id=>{const d=await S.getDoc(S.doc(fs,"crm",id));return d.exists()?d.data():null},
-   save:(id,d)=>S.setDoc(S.doc(fs,"crm",id),d)
+   loadAll:async id=>{const m=await S.getDoc(S.doc(fs,"crm",id)),cs=await S.getDocs(S.collection(fs,"crm",id,"chunks"));let L=[];cs.forEach(d=>{L=L.concat(d.data().leads||[])});return{meta:m.exists()?m.data():null,leads:L}},
+   saveMeta:(id,m)=>S.setDoc(S.doc(fs,"crm",id),m),
+   saveChunk:(id,k,L)=>S.setDoc(S.doc(fs,"crm",id,"chunks","c"+k),{leads:L})
   };
  }
  const hash=async p=>[...new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode("shcrm:"+p)))].map(x=>x.toString(16).padStart(2,"0")).join("");
  let cb;const out=u=>u&&{id:u.email,name:u.name,email:u.email};
  const set=u=>{ls("shcrm_s",u?u.email:null);cb&&cb(out(u))};
+ const get=id=>lg("shcrm_d_"+id)||{meta:null,leads:[]};
+ const put=(id,d)=>{if(!ls("shcrm_d_"+id,d))throw Error("Browser storage is full or blocked.")};
  return{
   signup:async(n,e,p)=>{const us=lg("shcrm_u")||{};if(us[e])throw{code:"auth/email-already-in-use"};us[e]={name:n,email:e,ph:await hash(p)};ls("shcrm_u",us);set(us[e])},
   login:async(e,p)=>{const u=(lg("shcrm_u")||{})[e];if(!u||u.ph!==await hash(p))throw{code:"auth/invalid-credential"};set(u)},
   reset:async()=>{throw{message:"Password reset emails need Firebase. See setup steps."}},
   logout:async()=>set(null),
   watch:f=>{cb=f;const e=lg("shcrm_s");f(out(e&&(lg("shcrm_u")||{})[e]))},
-  load:async id=>lg("shcrm_d_"+id),
-  save:async(id,d)=>{if(!ls("shcrm_d_"+id,d))throw Error("Browser storage is full or blocked.")}
+  loadAll:async id=>get(id),
+  saveMeta:async(id,m)=>{const d=get(id);d.meta=m;put(id,d)},
+  saveChunk:async(id,k,L)=>{const d=get(id);d.leads=d.leads.filter(l=>l.ck!==k).concat(L);put(id,d)}
  };
 }
 
-/* ============ STATE ============ */
-let B,me=null,db=null,view="leads",editId=null,editT=null,emailTo=null,pendingName="",filter={q:"",stage:""};
-const STAGES=["Qualify","Develop","Propose","Close"];
-const persist=()=>B.save(me.id,clone(db));
-const save=()=>persist().catch(e=>toast(em(e),true));
-const lead=id=>db.leads.find(l=>l.id===id);
+/* ================= STATE ================= */
+let B,me=null,db=null,leads=[],view="dash",editId=null,editT=null,emailIds=[],pendingName="",atab="login";
+let dirty=new Set(),sel=new Set(),cache={r:[]};const CH=150,openG={};
+const LS={q:"",ind:"",brand:"",country:"",city:"",stage:"",status:"",source:"",age:"",sort:"created",dir:-1,page:1,size:50,fo:false};
+const CS={q:"",page:1,size:50},AS={q:"",type:"",page:1,size:50};
+const strip=l=>{const{_s,...r}=l;return r};
+const idx=l=>{l._s=[l.company,l.trading,l.website,l.email,l.phone,l.cphone,l.wa,l.city,l.country,l.industry,l.brand,l.vcode,l.address,l.notes,...(l.persons||[]).flatMap(p=>[p.name,p.email,p.phone,p.role])].join(" ").toLowerCase();return l};
+const touch=l=>{idx(l);dirty.add(l.ck)};
+async function flush(){const ks=[...dirty];dirty.clear();try{for(const k of ks)await B.saveChunk(me.id,k,leads.filter(l=>l.ck===k).map(strip))}catch(e){ks.forEach(k=>dirty.add(k));toast(em(e),true)}}
+const saveMeta=()=>B.saveMeta(me.id,clone(db)).catch(e=>toast(em(e),true));
+function assign(l){const c={};leads.forEach(x=>c[x.ck]=(c[x.ck]||0)+1);let k=0;while((c[k]||0)>=CH)k++;l.ck=k}
+async function delLeads(ids){const s=new Set(ids);leads.filter(l=>s.has(l.id)).forEach(l=>dirty.add(l.ck));leads=leads.filter(l=>!s.has(l.id));ids.forEach(i=>sel.delete(i));await flush();$("#cnt")&&($("#cnt").textContent=leads.length.toLocaleString())}
+const lead=id=>leads.find(l=>l.id===id);
 const tpl=id=>db.templates.find(t=>t.id===id);
 const ini=s=>(s||"?").trim()[0].toUpperCase();
-const fill=(s,l,h)=>{const v={contact:l?.contact||"there",company:l?.company||"your company",sender:me.name,senderEmail:me.email,email:l?.email||"",phone:l?.phone||""};return s.replace(/\{\{(\w+)\}\}/g,(m,k)=>k in v?(h?esc(v[k]):v[k]):m)};
+const blank=()=>({id:uid(),created:Date.now(),company:"",trading:"",website:"",linkedin:"",vcode:"",industry:"",brand:"",source:"",status:"New",stage:"Qualify",email:"",phone:"",phone_cc:"Pakistan",cphone:"",cphone_cc:"Pakistan",wa:"",wa_cc:"Pakistan",address:"",city:"",country:"Pakistan",notes:"",persons:[],tl:[]});
+const fph=(l,k)=>l[k]?`+${dial(l[k+"_cc"])} ${l[k]}`:"";
+const cn=l=>l?.persons?.find(p=>p.name)?.name||"there";
+const toAddr=l=>l.email||(l.persons||[]).find(p=>p.email)?.email||"";
+const fill=(s,l,h)=>{const v={contact:cn(l),company:l?.company||"your company",city:l?.city||"",country:l?.country||"",website:l?.website||"",industry:l?.industry||"",sender:me.name,senderEmail:me.email};return s.replace(/\{\{(\w+)\}\}/g,(m,k)=>k in v?(h?esc(v[k]):v[k]):m)};
 const asHtml=s=>/<[a-z][\s\S]*>/i.test(s)?s:'<div style="white-space:pre-wrap;font-family:Arial,sans-serif;padding:12px">'+esc(s)+"</div>";
 const toText=h=>{const d=new DOMParser().parseFromString(asHtml(h).replace(/<\/(p|div|tr|h\d)>|<br\s*\/?>/gi,"$&\n"),"text/html");d.querySelectorAll("style,script").forEach(x=>x.remove());return d.body.textContent.replace(/[ \t]+\n/g,"\n").replace(/\n{3,}/g,"\n\n").trim()};
+const dedupe=a=>{const s=new Set();return a.filter(t=>!s.has(t.id)&&s.add(t.id))};
 
-/* ============ AUTH UI ============ */
-let atab="login";
+/* ================= AUTH UI ================= */
 const authMsg=(t,ok)=>{const m=$("#authMsg");m.textContent=t||"";m.className="msg"+(t?(ok?" ok":" er"):"")};
 function renderAuth(){
  $$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===atab));authMsg("");
@@ -275,7 +327,7 @@ $$(".tabs button").forEach(b=>b.onclick=()=>{atab=b.dataset.t;renderAuth()});
 $("#af").onsubmit=async ev=>{
  ev.preventDefault();
  const g=i=>($("#"+i)?.value||"").trim(),p=$("#p")?.value||"",e=g("e").toLowerCase(),btn=$("#go"),old=btn.textContent;
- if(!/^\S+@\S+\.\S+$/.test(e))return authMsg("Enter a valid email address.");
+ if(!MAIL.test(e))return authMsg("Enter a valid email address.");
  try{
   if(atab==="signup"){
    if(!g("n"))return authMsg("Please enter your name.");
@@ -289,148 +341,300 @@ $("#af").onsubmit=async ev=>{
  }catch(x){authMsg(em(x))}
  finally{btn.disabled=false;btn.textContent=old}
 };
-function showAuth(){me=db=null;$("#splash").classList.add("hide");$("#app").classList.add("hide");$("#auth").classList.remove("hide");atab="login";renderAuth()}
+function showAuth(){me=db=null;leads=[];$("#splash").classList.add("hide");$("#app").classList.add("hide");$("#auth").classList.remove("hide");atab="login";renderAuth()}
 async function start(u){
- let created=false;
- try{db=await B.load(u.id)}catch(e){toast("Could not load your data: "+em(e),true);return B.logout()}
- me=u;
- if(!db){db={profile:{name:pendingName||u.name},leads:[],templates:clone(DEFTPL)};created=true}
- db.leads||=[];db.templates||=clone(DEFTPL);
+ let r;try{r=await B.loadAll(u.id)}catch(e){toast("Could not load your data: "+em(e),true);return B.logout()}
+ me=u;db=r.meta;let created=false;
+ if(!db){db={profile:{name:pendingName||u.name},templates:clone(DEFTPL)};created=true}
+ db.templates=dedupe(db.templates&&db.templates.length?db.templates:clone(DEFTPL));
+ leads=(r.leads||[]).map(l=>{l.ck??=0;l.persons||=[];l.tl||=[];return idx(l)});
  if(db.profile?.name)me.name=db.profile.name;
- if(created)await persist().catch(e=>toast(em(e),true));
+ if(created)await saveMeta();
  $("#splash").classList.add("hide");$("#auth").classList.add("hide");$("#app").classList.remove("hide");
  $("#who").textContent=me.name;$("#av").textContent=ini(me.name);
- view="leads";editId=null;render();
+ view="dash";editId=editT=null;nav();render();
 }
-$("#logout").innerHTML=ic("out");$("#logout").onclick=()=>B.logout();
-$("#nav").innerHTML=[["leads","Leads"],["email","Email"],["tpl","Templates"],["acct","Account"]].map(([v,t])=>`<button data-v="${v}">${ic(v==="acct"?"user":v==="tpl"?"tpl":v)}${t}</button>`).join("");
-$$("#nav button").forEach(b=>b.onclick=()=>{view=b.dataset.v;editId=editT=null;render()});
 
-/* ============ RENDER ============ */
-function render(){
- $$("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===view||(view==="lead"&&b.dataset.v==="leads")||(view==="tedit"&&b.dataset.v==="tpl")));
+/* ================= SHELL ================= */
+$$("img.logo").forEach(i=>i.src=LOGO);
+const fv=document.createElement("link");fv.rel="icon";fv.href=LOGO;document.head.appendChild(fv);
+$("#logout").innerHTML=ic("out");$("#logout").onclick=()=>B.logout();
+$("#thm").innerHTML=ic("theme");
+$("#thm").onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==="dark"?"light":"dark";ls("shcrm_theme",r.dataset.theme)};
+$("#gsw").innerHTML=ic("search")+'<input id="gs" placeholder="Search all leads...">';
+$("#gs").onkeydown=e=>{if(e.key==="Enter"&&me){LS.q=e.target.value;LS.page=1;e.target.value="";go("leads")}};
+const NAV=[["Home",[["dash","Dashboard","dash"]]],["Sales",[["leads","Leads","leads"],["contacts","Contacts","user"]]],["Engage",[["act","Activities","activity"],["email","Email","mail"],["tpl","Templates","tpl"]]],["Settings",[["acct","Account","cog"]]]];
+const TITLES={dash:"Dashboard",leads:"Leads",lead:"Lead",contacts:"Contacts",act:"Activities",email:"Email",tpl:"Email templates",tedit:"Template",acct:"Account"};
+function nav(){
+ $("#sbs").innerHTML=NAV.map(([g,it])=>`<button class="grp ${openG[g]===false?"c":""}" data-g="${g}">${g}${ic("chev")}</button><div class="gi ${openG[g]===false?"hide":""}">${it.map(([v,t,i])=>`<button class="it" data-v="${v}" title="${t}">${ic(i)}<span class="lbl">${t}</span>${v==="leads"?`<span class="cnt" id="cnt">${leads.length.toLocaleString()}</span>`:""}</button>`).join("")}</div>`).join("");
+ $$(".grp").forEach(b=>b.onclick=()=>{openG[b.dataset.g]=openG[b.dataset.g]===false;nav();render(true)});
+ $$(".it[data-v]").forEach(b=>b.onclick=()=>{editId=editT=null;go(b.dataset.v)});
+ $("#coll").innerHTML=ic("left")+'<span class="lbl">Collapse menu</span>';
+ $("#aside").classList.toggle("min",!!lg("shcrm_min"));
+}
+$("#coll").onclick=()=>{const m=!$("#aside").classList.contains("min");$("#aside").classList.toggle("min",m);ls("shcrm_min",m)};
+const go=v=>{view=v;render()};
+function render(keep){
+ $$(".it[data-v]").forEach(b=>b.classList.toggle("on",b.dataset.v===({lead:"leads",tedit:"tpl"}[view]||view)));
+ $("#ttl").textContent=TITLES[view];
+ if(keep)return;
  const m=$("#main");m.classList.remove("enter");void m.offsetWidth;m.classList.add("enter");
- ({leads:rLeads,lead:rLead,email:rEmail,tpl:rTpl,tedit:rTedit,acct:rAcct})[view]();
- window.scrollTo(0,0);
+ ({dash:rDash,leads:rLeads,lead:rLead,contacts:rContacts,act:rAct,email:rEmail,tpl:rTpl,tedit:rTedit,acct:rAcct})[view]();
+ m.scrollTop=0;
 }
-function rLeads(){
- const s=db.leads,cnt=x=>s.filter(l=>l.stage===x).length;
- $("#main").innerHTML=`<div class="cmd"><button class="btn p" id="new">${ic("plus")}New lead</button><input id="q" placeholder="Search company, contact, email..." value="${esc(filter.q)}"><select id="fs"><option value="">All stages</option>${STAGES.map(x=>`<option ${filter.stage===x?"selected":""}>${x}</option>`).join("")}</select><button class="btn" id="csv">${ic("dl")}Export CSV</button></div>
- <div class="stats"><div class="stat"><b data-n="${s.length}">0</b><small>Total leads</small></div>${STAGES.map(x=>`<div class="stat"><b data-n="${cnt(x)}">0</b><small>${x}</small></div>`).join("")}</div><div class="card tw" id="lt"></div>`;
+function pager(el,total,S,fn){
+ const pages=Math.max(1,Math.ceil(total/S.size));S.page=Math.min(Math.max(1,S.page),pages);
+ const a=total?(S.page-1)*S.size+1:0,b=Math.min(total,S.page*S.size);
+ el.innerHTML=`<span>${a.toLocaleString()}-${b.toLocaleString()} of ${total.toLocaleString()}</span><span class="sp"></span><button class="btn" data-d="-1" ${S.page<=1?"disabled":""}>Prev</button><span>Page <input class="pg" type="number" min="1" max="${pages}" value="${S.page}"> of ${pages.toLocaleString()}</span><button class="btn" data-d="1" ${S.page>=pages?"disabled":""}>Next</button><select class="ps">${[25,50,100,200].map(n=>`<option ${n===S.size?"selected":""}>${n}</option>`).join("")}</select>`;
+ el.onclick=e=>{const d=e.target.closest("[data-d]");if(d){S.page+=+d.dataset.d;fn()}};
+ el.querySelector(".pg").onchange=e=>{S.page=+e.target.value||1;fn()};
+ el.querySelector(".ps").onchange=e=>{S.size=+e.target.value;S.page=1;fn()};
+}
+
+/* ================= DASHBOARD ================= */
+function rDash(){
+ const now=Date.now();let nw=0,qu=0,ems=0;const bs={},bi={};
+ leads.forEach(l=>{if(now-l.created<6048e5)nw++;if(l.status==="Qualified")qu++;ems+=(l.tl||[]).filter(t=>t.type==="email").length;bs[l.stage]=(bs[l.stage]||0)+1;const k=l.industry||"Not set";bi[k]=(bi[k]||0)+1});
+ const bars=o=>{const e=Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,8),mx=Math.max(1,...e.map(x=>x[1]));return e.length?e.map(([k,v])=>`<div class="bar"><span>${esc(k)}</span><div><i style="width:${v/mx*100}%"></i></div><b>${v.toLocaleString()}</b></div>`).join(""):'<div class="empty">No data yet</div>'};
+ const rec=leads.slice().sort((a,b)=>b.created-a.created).slice(0,6);
+ $("#main").innerHTML=`<div class="hello"><img class="logo" style="width:64px;height:64px" src="${LOGO}" alt=""><div style="flex:1;min-width:200px"><h2>Welcome back, ${esc(me.name.split(" ")[0])}</h2><p>${leads.length?`You have ${leads.length.toLocaleString()} leads in your pipeline.`:"Add your first lead or import a CSV to get started."}</p></div><button class="btn p" id="dn">${ic("plus")}New lead</button><button class="btn" id="de">${ic("mail")}Compose email</button></div>
+ <div class="stats"><div class="stat"><b data-n="${leads.length}">0</b><small>Total leads</small></div><div class="stat"><b data-n="${nw}">0</b><small>New this week</small></div><div class="stat"><b data-n="${qu}">0</b><small>Qualified</small></div><div class="stat"><b data-n="${ems}">0</b><small>Emails sent</small></div></div>
+ <div class="g2"><div class="card"><h3>Pipeline by stage</h3>${bars(bs)}</div><div class="card"><h3>Leads by industry</h3>${bars(bi)}</div></div>
+ <div class="card flush"><div style="padding:16px 18px 6px"><h3>Recent leads</h3></div>${rec.length?`<div class="tw"><table><tbody>${rec.map(l=>`<tr data-id="${l.id}"><td><b>${esc(l.company)}</b></td><td>${esc(l.industry)}</td><td>${esc([l.city,l.country].filter(Boolean).join(", "))}</td><td><span class="tag s-${l.status}">${l.status}</span></td><td>${new Date(l.created).toLocaleDateString()}</td></tr>`).join("")}</tbody></table></div>`:'<div class="empty">No leads yet.</div>'}</div>`;
  $$("[data-n]").forEach(countUp);
- const rows=()=>{const q=filter.q.toLowerCase(),list=s.filter(l=>(!filter.stage||l.stage===filter.stage)&&(!q||[l.company,l.trading,l.contact,l.email,l.vcode].join(" ").toLowerCase().includes(q))).sort((a,b)=>b.created-a.created);
-  $("#lt").innerHTML=list.length?`<table><thead><tr><th>Company</th><th>Contact</th><th>Email</th><th>Phone</th><th>Rating</th><th>Stage</th></tr></thead><tbody>${list.map(l=>`<tr data-id="${l.id}"><td><div class="who"><div class="av">${esc(ini(l.company))}</div><div><b>${esc(l.company)}</b><br><small style="color:var(--mu)">${esc(l.trading)}</small></div></div></td><td>${esc(l.contact)}</td><td>${esc(l.email)}</td><td>${esc(l.phone)}</td><td><span class="tag r-${esc(l.rating)}">${esc(l.rating)}</span></td><td>${esc(l.stage)}</td></tr>`).join("")}</tbody></table>`:`<div class="empty">${s.length?"No leads match your search.":'No leads yet. Select "New lead" to add your first company.'}</div>`;
-  $$("#lt tbody tr").forEach(r=>r.onclick=()=>{editId=r.dataset.id;view="lead";render()})};
- rows();
- $("#new").onclick=()=>{editId="new";view="lead";render()};
- $("#q").oninput=e=>{filter.q=e.target.value;rows()};
- $("#fs").onchange=e=>{filter.stage=e.target.value;rows()};
- $("#csv").onclick=()=>{const h=["company","trading","contact","email","phone","orgType","leadStage","vcode","rating","status","source","address","stage","notes"];
-  const c=[h.join(",")].concat(s.map(l=>h.map(k=>'"'+String(l[k]??"").replace(/"/g,'""')+'"').join(","))).join("\n");
-  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([c],{type:"text/csv"}));a.download="leads.csv";a.click()};
+ $("#dn").onclick=()=>{editId="new";go("lead")};$("#de").onclick=()=>{emailIds=[];go("email")};
+ $$("tbody tr").forEach(r=>r.onclick=()=>{editId=r.dataset.id;go("lead")});
 }
-const F=(k,l,v,t="text")=>`<label>${l}</label><input data-f="${k}" type="${t}" value="${esc(v)}">`;
-const SEL=(k,l,v,o)=>`<label>${l}</label><select data-f="${k}">${o.map(x=>`<option ${x===v?"selected":""}>${x}</option>`).join("")}</select>`;
+
+/* ================= LEADS LIST ================= */
+function filtered(){
+ const q=LS.q.toLowerCase().split(/\s+/).filter(Boolean),city=LS.city.toLowerCase(),now=Date.now(),age=LS.age?+LS.age*864e5:0;
+ const r=leads.filter(l=>(!LS.ind||l.industry===LS.ind)&&(!LS.brand||l.brand===LS.brand)&&(!LS.country||l.country===LS.country)&&(!city||(l.city||"").toLowerCase().includes(city))&&(!LS.stage||l.stage===LS.stage)&&(!LS.status||l.status===LS.status)&&(!LS.source||l.source===LS.source)&&(!age||now-l.created<=age)&&q.every(t=>l._s.includes(t)));
+ const k=LS.sort,d=LS.dir;
+ r.sort((a,b)=>k==="created"?(a.created-b.created)*d:String(a[k]||"").toLowerCase().localeCompare(String(b[k]||"").toLowerCase())*d);
+ return r;
+}
+const COLS=["company","trading","website","linkedin","vcode","industry","brand","source","status","stage","email","phone_cc","phone","cphone_cc","cphone","wa_cc","wa","address","city","country","notes"];
+function parseCsv(t){const R=[];let r=[],c="",q=false;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}else if(ch==='"')q=true;else if(ch===","){r.push(c);c=""}else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&t[i+1]==="\n")i++;r.push(c);c="";if(r.some(x=>x))R.push(r);r=[]}else c+=ch}if(c||r.length){r.push(c);if(r.some(x=>x))R.push(r)}return R}
+function rLeads(){
+ const opt=(a,v,all)=>`<option value="">${all}</option>`+a.map(x=>`<option ${x===v?"selected":""}>${esc(x)}</option>`).join("");
+ const countries=[...new Set(leads.map(l=>l.country).filter(Boolean))].sort();
+ $("#main").innerHTML=`<div class="cmd"><button class="btn p" id="new">${ic("plus")}New lead</button><button class="btn" id="imp">${ic("up")}Import CSV</button><button class="btn" id="csv">${ic("dl")}Export CSV</button><input type="file" id="fi" accept=".csv,text/csv" class="hide"></div>
+ <div class="cmd"><div class="sbox">${ic("search")}<input id="q" placeholder="Search company, person, email, phone, city, website..." value="${esc(LS.q)}"></div><button class="btn" id="ftg">${ic("filter")}Filters <span class="badge hide" id="fc"></span></button><button class="btn" id="fclr">${ic("x")}Clear</button></div>
+ <div class="card fp ${LS.fo?"":"hide"}" id="fpn"><div><label>Industry</label><select data-k="ind">${opt(INDUSTRIES,LS.ind,"All industries")}</select></div><div><label>Brand / website</label><select data-k="brand">${opt(BRANDS,LS.brand,"All brands")}</select></div><div><label>Country</label><select data-k="country">${opt(countries,LS.country,"All countries")}</select></div><div><label>City</label><input data-k="city" value="${esc(LS.city)}" placeholder="Any city"></div><div><label>Stage</label><select data-k="stage">${opt(STAGES,LS.stage,"All stages")}</select></div><div><label>Status</label><select data-k="status">${opt(STATUSES,LS.status,"All statuses")}</select></div><div><label>Source</label><select data-k="source">${opt(SOURCES,LS.source,"All sources")}</select></div><div><label>Added</label><select data-k="age"><option value="">Any time</option>${[["1","Today"],["7","Last 7 days"],["30","Last 30 days"],["90","Last 90 days"]].map(([v,t])=>`<option value="${v}" ${LS.age===v?"selected":""}>${t}</option>`).join("")}</select></div></div>
+ <div class="cmd hide" id="bulk"><b id="bn"></b><button class="lnk" id="sa"></button><span class="sp"></span><button class="btn" id="bem">${ic("mail")}Email</button><select id="bst"><option value="">Move to stage...</option>${STAGES.map(x=>`<option>${x}</option>`).join("")}</select><select id="bss"><option value="">Set status...</option>${STATUSES.map(x=>`<option>${x}</option>`).join("")}</select><button class="btn d" id="bdl">${ic("trash")}Delete</button><button class="btn" id="bcl">Clear</button></div>
+ <div class="card flush"><div class="tw" id="lt"></div><div class="pgr" id="pgn"></div></div>`;
+ const rows=()=>{
+  const r=cache.r=filtered(),s=(LS.page-1)*LS.size;pager($("#pgn"),r.length,LS,rows);
+  const pg=r.slice((LS.page-1)*LS.size,LS.page*LS.size),ar=k=>LS.sort===k?(LS.dir>0?" ▲":" ▼"):"";
+  const th=(k,t)=>`<th class="srt" data-k="${k}">${t}${ar(k)}</th>`;
+  $("#lt").innerHTML=pg.length?`<table><thead><tr><th class="cb"><input type="checkbox" id="all" ${pg.every(l=>sel.has(l.id))?"checked":""}></th>${th("company","Company")}${th("industry","Industry")}<th>Contact person</th><th>Email</th><th>Phone</th>${th("city","City / Country")}${th("stage","Stage")}${th("status","Status")}${th("created","Added")}</tr></thead><tbody>${pg.map(l=>{const p=l.persons[0];return`<tr data-id="${l.id}"><td class="cb"><input type="checkbox" class="ck" ${sel.has(l.id)?"checked":""}></td><td><div class="who"><div class="av">${esc(ini(l.company))}</div><div><b>${esc(l.company)}</b><br><small>${esc(l.website)}</small></div></div></td><td>${esc(l.industry)}</td><td>${esc(p?p.name:"")}</td><td>${esc(l.email||p?.email)}</td><td>${esc(fph(l,"phone")||fph(l,"cphone")||fph(l,"wa"))}</td><td>${esc([l.city,l.country].filter(Boolean).join(", "))}</td><td>${esc(l.stage)}</td><td><span class="tag s-${l.status}">${l.status}</span></td><td>${new Date(l.created).toLocaleDateString()}</td></tr>`}).join("")}</tbody></table>`:`<div class="empty">${leads.length?"No leads match your search or filters.":'No leads yet. Select "New lead" or import a CSV.'}</div>`;
+  const n=["ind","brand","country","city","stage","status","source","age"].filter(k=>LS[k]).length;$("#fc").textContent=n;$("#fc").classList.toggle("hide",!n);
+  bulk();
+ };
+ const bulk=()=>{$("#bulk").classList.toggle("hide",!sel.size);$("#bn").textContent=sel.size.toLocaleString()+" selected";const more=sel.size<cache.r.length;$("#sa").classList.toggle("hide",!more);$("#sa").textContent=`Select all ${cache.r.length.toLocaleString()} results`};
+ rows();
+ $("#lt").onclick=e=>{
+  const th=e.target.closest("th[data-k]");if(th){const k=th.dataset.k;LS.dir=LS.sort===k?-LS.dir:1;LS.sort=k;rows();return}
+  if(e.target.id==="all"){const s=(LS.page-1)*LS.size;cache.r.slice(s,s+LS.size).forEach(l=>e.target.checked?sel.add(l.id):sel.delete(l.id));rows();return}
+  const cb=e.target.closest(".ck");if(cb){const id=cb.closest("tr").dataset.id;cb.checked?sel.add(id):sel.delete(id);bulk();return}
+  const tr=e.target.closest("tbody tr");if(tr){editId=tr.dataset.id;go("lead")}
+ };
+ $("#sa").onclick=()=>{cache.r.forEach(l=>sel.add(l.id));rows()};
+ $("#bcl").onclick=()=>{sel.clear();rows()};
+ $("#bem").onclick=()=>{emailIds=[...sel];go("email")};
+ const bulkSet=async(k,v)=>{if(!v)return;sel.forEach(id=>{const l=lead(id);if(l){l[k]=v;touch(l)}});await flush();toast(sel.size+" leads updated");rows()};
+ $("#bst").onchange=e=>bulkSet("stage",e.target.value);$("#bss").onchange=e=>bulkSet("status",e.target.value);
+ $("#bdl").onclick=async()=>{if(confirm(`Delete ${sel.size} lead(s)? This cannot be undone.`)){await delLeads([...sel]);rows();toast("Deleted")}};
+ $("#new").onclick=()=>{editId="new";go("lead")};
+ $("#q").oninput=deb(e=>{LS.q=e.target.value;LS.page=1;rows()});
+ $("#ftg").onclick=()=>{LS.fo=!LS.fo;$("#fpn").classList.toggle("hide",!LS.fo)};
+ $("#fclr").onclick=()=>{Object.assign(LS,{q:"",ind:"",brand:"",country:"",city:"",stage:"",status:"",source:"",age:"",page:1});rLeads()};
+ $$("[data-k]").forEach(i=>{if(i.tagName==="SELECT")i.onchange=()=>{LS[i.dataset.k]=i.value;LS.page=1;rows()};else i.oninput=deb(()=>{LS[i.dataset.k]=i.value;LS.page=1;rows()})});
+ $("#csv").onclick=()=>{
+  const q=v=>'"'+String(v??"").replace(/"/g,'""')+'"',h=COLS.concat("persons");
+  const c=[h.join(",")].concat(cache.r.map(l=>h.map(k=>k==="persons"?q(l.persons.map(p=>`${p.name} <${p.email}>`).join("; ")):q(l[k])).join(","))).join("\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([c],{type:"text/csv"}));a.download="leads.csv";a.click();toast(cache.r.length.toLocaleString()+" leads exported");
+ };
+ $("#imp").onclick=()=>$("#fi").click();
+ $("#fi").onchange=async e=>{
+  const f=e.target.files[0];if(!f)return;
+  const R=parseCsv(await f.text());if(R.length<2)return toast("The CSV file is empty.",true);
+  const h=R[0].map(x=>x.trim().toLowerCase());if(!h.includes("company"))return toast('The CSV needs a "company" column (use Export CSV to see the format).',true);
+  const have=new Set(leads.map(l=>(l.email||"").toLowerCase()).filter(Boolean)),cnt={};leads.forEach(l=>cnt[l.ck]=(cnt[l.ck]||0)+1);
+  let ok=0,skip=0,k=0;
+  R.slice(1).forEach(r=>{
+   const o=blank();h.forEach((c,i)=>{if(COLS.includes(c)&&r[i]!=null)o[c]=r[i].trim();if(c==="persons"&&r[i])for(const m of r[i].matchAll(/([^<;]+)<([^>]+)>/g))o.persons.push({name:m[1].trim(),email:m[2].trim(),role:"",phone:"",linkedin:""})});
+   o.phone_cc=o.phone_cc||"Pakistan";o.cphone_cc=o.cphone_cc||"Pakistan";o.wa_cc=o.wa_cc||"Pakistan";
+   const em=o.email.toLowerCase();if(!o.company||(em&&have.has(em))){skip++;return}
+   if(em)have.add(em);while((cnt[k]||0)>=CH)k++;o.ck=k;cnt[k]=(cnt[k]||0)+1;o.created=Date.now()-ok;
+   leads.push(idx(o));dirty.add(k);ok++;
+  });
+  await flush();$("#cnt").textContent=leads.length.toLocaleString();toast(`Imported ${ok.toLocaleString()} leads${skip?`, skipped ${skip.toLocaleString()} (no company or duplicate email)`:""}`);rLeads();
+ };
+}
+
+/* ================= LEAD FORM ================= */
+const F=(k,l,v,t="text",ph="")=>`<div><label>${l}</label><input data-f="${k}" type="${t}" value="${esc(v)}" placeholder="${ph}"></div>`;
+const SEL=(k,l,v,o,bl)=>`<div><label>${l}</label><select data-f="${k}">${bl?`<option value="">Select...</option>`:""}${o.map(x=>`<option ${x===v?"selected":""}>${esc(x)}</option>`).join("")}</select></div>`;
+const PH=(k,l,d)=>`<div><label>${l}</label><div class="ph"><select data-f="${k}_cc">${COUNTRIES.map(c=>`<option value="${c.n}" ${c.n===d[k+"_cc"]?"selected":""}>${c.n} (+${c.c})</option>`).join("")}</select><input data-f="${k}" type="tel" value="${esc(d[k])}" placeholder="3001234567"></div></div>`;
 function rLead(){
- const isNew=editId==="new";
- const l=isNew?{id:uid(),company:"",trading:"",contact:"",email:"",phone:"",orgType:"Private",leadStage:"Targeted",vcode:"",rating:"Warm",status:"New",source:"",address:"",stage:"Qualify",notes:"",tl:[],created:Date.now()}:lead(editId);
+ const isNew=editId==="new",l=isNew?blank():lead(editId);
  if(!l){view="leads";return render()}
- const tl=(l.tl||[]).slice().reverse();
+ const d=strip(clone(l));delete d.tl;d.persons||=[];
  $("#main").innerHTML=`<div class="cmd"><button class="btn" id="back">${ic("back")}Back</button><button class="btn p" id="sv">${ic("save")}Save</button><button class="btn" id="sc">Save &amp; close</button>${isNew?"":`<button class="btn" id="em">${ic("mail")}Email</button><button class="btn d" id="del">${ic("trash")}Delete</button>`}</div>
- <div class="card"><div class="hd"><div class="av">${esc(ini(l.contact||l.company))}</div><div><h2>${esc(l.company||"New lead")}</h2><small style="color:var(--mu)">${isNew?"Unsaved lead":esc(l.contact)}</small></div><div class="meta"><div><b>${esc(l.source||"-")}</b>Lead source</div><div><b>${esc(l.rating)}</b>Rating</div><div><b>${esc(l.status)}</b>Status</div></div></div>
+ <div class="card"><div class="hd"><div class="av">${esc(ini(l.company||"?"))}</div><div><h2>${esc(l.company||"New lead")}</h2><small style="color:var(--mu)">${isNew?"Unsaved lead":esc([l.city,l.country].filter(Boolean).join(", "))}</small></div><div class="meta"><div><b>${esc(l.industry||"-")}</b>Industry</div><div><b>${esc(l.brand||"-")}</b>Brand</div><div><b>${esc(l.status)}</b>Status</div></div></div>
  <div class="stages" id="stg">${STAGES.map(x=>`<button data-s="${x}" class="${l.stage===x?"on":""}">${x}</button>`).join("")}</div></div>
- <div class="cols"><div class="card"><h3>Company details</h3><div class="grid"><div>${F("company","Company *",l.company)}${F("trading","Trading name",l.trading)}${SEL("orgType","Organization type",l.orgType,["Private","Public","Partnership","Sole proprietor","Non-profit","Other"])}${SEL("leadStage","Lead stage",l.leadStage,["Targeted","Contacted","Meeting set","Negotiating","Won","Lost"])}${F("vcode","VCode",l.vcode)}</div><div>${F("contact","Contact name",l.contact)}${F("email","Email",l.email,"email")}${F("phone","Phone",l.phone,"tel")}${SEL("rating","Rating",l.rating,["Hot","Warm","Cold"])}${SEL("status","Status",l.status,["New","Contacted","Qualified","Lost"])}${F("source","Lead source",l.source)}</div></div>${F("address","Address",l.address)}<label>Notes</label><textarea data-f="notes">${esc(l.notes)}</textarea></div>
- <div class="card"><h3>Timeline</h3>${isNew?'<div class="empty">Save the lead to add notes and emails.</div>':`<textarea id="nt" placeholder="Write a note..." style="min-height:64px"></textarea><button class="btn p" id="an" style="margin-top:8px">Add note</button><div class="tl">${tl.map(t=>`<div><b>${t.type==="email"?"Email sent":"Note"}</b>${t.type==="email"?": "+esc(t.subject):""}<br>${esc((t.text||"").slice(0,160))}<small>${new Date(t.at).toLocaleString()}</small></div>`).join("")||'<div class="empty">No activity yet</div>'}</div>`}</div></div>`;
- const read=()=>$$("[data-f]").forEach(i=>l[i.dataset.f]=i.value.trim());
- const commit=()=>{read();if(!l.company){toast("Company name is required.",true);return false}if(isNew&&!lead(l.id))db.leads.push(l);l.tl||=[];save();return true};
- $("#back").onclick=()=>{view="leads";editId=null;render()};
- $("#sv").onclick=()=>{if(commit()){toast("Lead saved");editId=l.id;render()}};
- $("#sc").onclick=()=>{if(commit()){view="leads";editId=null;render()}};
- $$("#stg button").forEach(b=>b.onclick=()=>{l.stage=b.dataset.s;if(!isNew)save();$$("#stg button").forEach(x=>x.classList.toggle("on",x===b))});
+ <div class="cols"><div>
+ <div class="card"><h3>Company</h3><div class="grid">${F("company","Company *",d.company)}${F("trading","Trading name",d.trading)}${F("website","Website",d.website,"text","example.com")}${F("linkedin","Company LinkedIn",d.linkedin)}${F("vcode","VCode",d.vcode)}${SEL("industry","Target industry",d.industry,INDUSTRIES,1)}${SEL("brand","Data is for (brand / website)",d.brand,BRANDS,1)}${SEL("source","Lead source",d.source,SOURCES,1)}${SEL("status","Status",d.status,STATUSES)}</div></div>
+ <div class="card"><h3>Contact details</h3><div class="grid">${F("email","Email",d.email,"email")}${PH("phone","Phone number",d)}${PH("cphone","Company contact number",d)}${PH("wa","WhatsApp number",d)}</div></div>
+ <div class="card"><h3>Address</h3><div class="grid">${F("address","Address",d.address)}${F("city","City",d.city)}${SEL("country","Country",d.country,COUNTRIES.map(c=>c.n),1)}</div></div>
+ <div class="card"><div class="row2"><h3 style="margin:0">People</h3><span class="sp"></span><button class="btn" id="ap">${ic("plus")}Add person</button></div><div id="pl"></div></div>
+ <div class="card"><h3>Notes</h3><textarea data-f="notes">${esc(d.notes)}</textarea></div>
+ </div><div class="card"><h3>Timeline</h3>${isNew?'<div class="empty">Save the lead to add notes and emails.</div>':`<textarea id="nt" placeholder="Write a note..." style="min-height:64px"></textarea><button class="btn p" id="an" style="margin-top:8px">Add note</button><div class="tl" id="tl"></div>`}</div></div>`;
+ const drawP=()=>{$("#pl").innerHTML=d.persons.map((p,i)=>`<div class="pc" data-i="${i}"><div class="grid">${[["name","Name *"],["email","Email *"],["role","Role / title"],["phone","Phone"],["linkedin","LinkedIn profile"]].map(([k,t])=>`<div><label>${t}</label><input data-p="${k}" value="${esc(p[k])}"></div>`).join("")}<div style="align-self:end"><button type="button" class="btn d rm">${ic("trash")}Remove</button></div></div></div>`).join("")||'<div class="hint">No people added yet. Add decision makers (name and email are required).</div>'};
+ const readP=()=>$$("#pl .pc").forEach(c=>{const p=d.persons[+c.dataset.i];c.querySelectorAll("[data-p]").forEach(i=>p[i.dataset.p]=i.value.trim())});
+ const drawT=()=>{if(isNew)return;$("#tl").innerHTML=(l.tl||[]).slice().reverse().slice(0,50).map(t=>`<div><b>${t.type==="email"?"Email sent":"Note"}</b>${t.type==="email"?": "+esc(t.subject):""}<br>${esc((t.text||"").slice(0,160))}<small>${new Date(t.at).toLocaleString()}</small></div>`).join("")||'<div class="empty">No activity yet</div>'};
+ drawP();drawT();
+ $("#ap").onclick=()=>{readP();d.persons.push({name:"",email:"",role:"",phone:"",linkedin:""});drawP()};
+ $("#pl").onclick=e=>{const b=e.target.closest(".rm");if(b){readP();d.persons.splice(+b.closest(".pc").dataset.i,1);drawP()}};
+ $$("#stg button").forEach(b=>b.onclick=()=>{d.stage=b.dataset.s;$$("#stg button").forEach(x=>x.classList.toggle("on",x===b))});
+ const commit=async()=>{
+  $$("[data-f]").forEach(i=>d[i.dataset.f]=i.value.trim());readP();
+  if(!d.company){toast("Company name is required.",true);return false}
+  if(d.email&&!MAIL.test(d.email)){toast("Enter a valid company email.",true);return false}
+  d.persons=d.persons.filter(p=>p.name||p.email||p.phone||p.linkedin||p.role);
+  for(const[i,p]of d.persons.entries())if(!p.name||!MAIL.test(p.email)){toast(`Person ${i+1}: name and a valid email are required.`,true);return false}
+  if(isNew&&d.email&&leads.some(x=>(x.email||"").toLowerCase()===d.email.toLowerCase())&&!confirm("A lead with this email already exists. Save anyway?"))return false;
+  if(isNew){Object.assign(l,d);assign(l);leads.push(l)}else Object.assign(l,d);
+  touch(l);await flush();$("#cnt").textContent=leads.length.toLocaleString();return true;
+ };
+ $("#back").onclick=()=>go("leads");
+ $("#sv").onclick=async()=>{if(await commit()){toast("Lead saved");editId=l.id;render()}};
+ $("#sc").onclick=async()=>{if(await commit())go("leads")};
  if(!isNew){
-  $("#del").onclick=()=>{if(confirm("Delete this lead?")){db.leads=db.leads.filter(x=>x.id!==l.id);save();view="leads";editId=null;render()}};
-  $("#em").onclick=()=>{if(commit()){emailTo=l.id;view="email";render()}};
-  $("#an").onclick=()=>{const t=$("#nt").value.trim();if(!t)return;read();l.tl.push({type:"note",text:t,at:Date.now()});save();render()};
+  $("#del").onclick=async()=>{if(confirm("Delete this lead?")){await delLeads([l.id]);toast("Lead deleted");go("leads")}};
+  $("#em").onclick=async()=>{if(await commit()){emailIds=[l.id];go("email")}};
+  $("#an").onclick=async()=>{const t=$("#nt").value.trim();if(!t)return;l.tl.push({type:"note",text:t,at:Date.now()});touch(l);await flush();$("#nt").value="";drawT()};
  }
 }
-/* ---- Email ---- */
-async function sendWeb3(to,name,sub,html){
- const fd=new FormData();
- fd.append("access_key",W3F_KEY);fd.append("subject",sub);fd.append("from_name",me.name+" - Sales Hub CRM");
- fd.append("name",name||to);fd.append("email",to);
- fd.append("message","To: "+to+"\n\n"+toText(html));
- const r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd}),d=await r.json();
- if(!r.ok||d.success===false)throw Error(d.message||"Email could not be sent.");
+
+/* ================= CONTACTS & ACTIVITIES ================= */
+function rContacts(){
+ $("#main").innerHTML=`<div class="cmd"><div class="sbox">${ic("search")}<input id="q" placeholder="Search people by name, email, role or company..." value="${esc(CS.q)}"></div></div><div class="card flush"><div class="tw" id="ct"></div><div class="pgr" id="pgn"></div></div>`;
+ const all=[];leads.forEach(l=>l.persons.forEach(p=>all.push({p,l})));
+ const rows=()=>{const q=CS.q.toLowerCase().split(/\s+/).filter(Boolean),r=all.filter(({p,l})=>{const s=`${p.name} ${p.email} ${p.phone} ${p.role} ${l.company}`.toLowerCase();return q.every(t=>s.includes(t))});
+  pager($("#pgn"),r.length,CS,rows);const pg=r.slice((CS.page-1)*CS.size,CS.page*CS.size);
+  $("#ct").innerHTML=pg.length?`<table><thead><tr><th>Name</th><th>Role</th><th>Company</th><th>Email</th><th>Phone</th><th>LinkedIn</th></tr></thead><tbody>${pg.map(({p,l})=>`<tr data-id="${l.id}"><td><div class="who"><div class="av">${esc(ini(p.name))}</div><b>${esc(p.name)}</b></div></td><td>${esc(p.role)}</td><td>${esc(l.company)}</td><td>${esc(p.email)}</td><td>${esc(p.phone)}</td><td>${p.linkedin?`<a href="${esc(/^https?:/.test(p.linkedin)?p.linkedin:"https://"+p.linkedin)}" target="_blank" rel="noopener" style="color:var(--pr)">Profile</a>`:""}</td></tr>`).join("")}</tbody></table>`:'<div class="empty">No people found. Add people inside a lead.</div>';
+  $$("#ct tbody tr").forEach(t=>t.onclick=e=>{if(e.target.tagName==="A")return;editId=t.dataset.id;go("lead")})};
+ rows();$("#q").oninput=deb(e=>{CS.q=e.target.value;CS.page=1;rows()});
 }
-async function sendMail(to,name,sub,html,tid){
- if(!EMAILJS.publicKey)return sendWeb3(to,name,sub,html);
- const r=await fetch("https://api.emailjs.com/api/v1.0/email/send",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({service_id:EMAILJS.serviceId,template_id:EMAILJS.templates[tid]||EMAILJS.templateId,user_id:EMAILJS.publicKey,template_params:{to_email:to,to_name:name||to,from_name:me.name,reply_to:me.email,subject:sub,message_html:asHtml(html),message:toText(html)}})});
+function rAct(){
+ $("#main").innerHTML=`<div class="cmd"><div class="sbox">${ic("search")}<input id="q" placeholder="Search activities..." value="${esc(AS.q)}"></div><select id="ty"><option value="">All activities</option><option value="note" ${AS.type==="note"?"selected":""}>Notes</option><option value="email" ${AS.type==="email"?"selected":""}>Emails</option></select></div><div class="card flush"><div class="tw" id="ct"></div><div class="pgr" id="pgn"></div></div>`;
+ const all=[];leads.forEach(l=>l.tl.forEach(t=>all.push({t,l})));all.sort((a,b)=>b.t.at-a.t.at);
+ const rows=()=>{const q=AS.q.toLowerCase(),r=all.filter(({t,l})=>(!AS.type||t.type===AS.type)&&(!q||`${t.subject||""} ${t.text||""} ${t.to||""} ${l.company}`.toLowerCase().includes(q)));
+  pager($("#pgn"),r.length,AS,rows);const pg=r.slice((AS.page-1)*AS.size,AS.page*AS.size);
+  $("#ct").innerHTML=pg.length?`<table><thead><tr><th>Type</th><th>Details</th><th>Lead</th><th>Date</th></tr></thead><tbody>${pg.map(({t,l})=>`<tr data-id="${l.id}"><td><span class="tag ${t.type==="email"?"s-New":"s-Contacted"}">${t.type==="email"?"Email":"Note"}</span></td><td style="white-space:normal;max-width:420px">${t.type==="email"?`<b>${esc(t.subject)}</b> to ${esc(t.to)}`:esc((t.text||"").slice(0,140))}</td><td>${esc(l.company)}</td><td>${new Date(t.at).toLocaleString()}</td></tr>`).join("")}</tbody></table>`:'<div class="empty">No activities yet.</div>';
+  $$("#ct tbody tr").forEach(t=>t.onclick=()=>{editId=t.dataset.id;go("lead")})};
+ rows();$("#q").oninput=deb(e=>{AS.q=e.target.value;AS.page=1;rows()});$("#ty").onchange=e=>{AS.type=e.target.value;AS.page=1;rows()};
+}
+
+/* ================= EMAIL ================= */
+async function sendMail(to,name,sub,html){
+ if(!EMAILJS.publicKey)throw Error("EmailJS is not configured in the code.");
+ const r=await fetch("https://api.emailjs.com/api/v1.0/email/send",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({service_id:EMAILJS.serviceId,template_id:EMAILJS.templateId,user_id:EMAILJS.publicKey,template_params:{to_email:to,to_name:name||to,from_name:me.name,reply_to:me.email,subject:sub,message_html:html,message:toText(html)}})});
  if(!r.ok)throw Error((await r.text())||"Email could not be sent.");
 }
 function rEmail(){
- const sent=[];db.leads.forEach(l=>(l.tl||[]).forEach(t=>t.type==="email"&&sent.push({...t,company:l.company})));sent.sort((a,b)=>b.at-a.at);
- $("#main").innerHTML=`<div class="cols"><div class="card"><h3>Compose email</h3>
+ const recs=()=>emailIds.map(lead).filter(Boolean);
+ const sent=[];leads.forEach(l=>l.tl.forEach(t=>t.type==="email"&&sent.push({...t,company:l.company})));sent.sort((a,b)=>b.at-a.at);
+ $("#main").innerHTML=`<div class="cols" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div class="card"><h3>Compose email</h3>
  <label>From</label><input value="${esc(me.name)} <${esc(me.email)}>" disabled>
- <div class="grid"><div><label>Lead</label><select id="el"><option value="">-- select lead --</option>${db.leads.map(l=>`<option value="${l.id}" ${l.id===emailTo?"selected":""}>${esc(l.company)}${l.contact?" - "+esc(l.contact):""}</option>`).join("")}</select></div><div><label>Template</label><select id="et"><option value="">-- none --</option>${db.templates.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join("")}</select></div></div>
- <label>To</label><input id="eto" type="email" placeholder="recipient@company.com"><label>Subject</label><input id="esub">
- <label>Message (plain text or HTML)</label><textarea id="eb" class="code" style="min-height:200px;white-space:pre-wrap"></textarea>
- <div class="cmd" style="margin:14px 0 0;box-shadow:none;border:0;padding:0"><button class="btn p" id="es">${ic("send")}Send email</button><button class="btn" id="eo">${ic("ext")}Open in email app</button><button class="btn" id="ec">${ic("copy")}Copy HTML</button></div></div>
+ <label>Recipients (search your leads)</label><div style="position:relative"><input id="es" placeholder="Type a company, person or email..." autocomplete="off"><div class="rl hide" id="rl"></div></div><div id="rc" class="chips"></div>
+ <div id="mw"><label>Or type any email address</label><input id="eto" type="email" placeholder="recipient@company.com"></div>
+ <label>Template</label><select id="et"><option value="">-- none --</option>${db.templates.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join("")}</select>
+ <label>Subject</label><input id="esub"><label>Message (plain text or HTML)</label><textarea id="eb" class="code" style="min-height:200px;white-space:pre-wrap"></textarea>
+ <div class="chips">${MERGE.map(m=>`<span data-m="${m}">{{${m}}}</span>`).join("")}</div>
+ <div class="cmd" style="margin:14px 0 0;box-shadow:none;border:0;padding:0"><button class="btn p" id="send">${ic("send")}Send email</button><button class="btn" id="ec">${ic("copy")}Copy HTML</button></div>
+ <p class="hint">Each recipient gets their own email, with {{contact}} and {{company}} filled in. Emails go out from your connected Gmail, about one per second.</p></div>
  <div class="card"><h3>Preview</h3><iframe class="pv" id="pv" sandbox></iframe></div></div>
- <div class="card tw"><h3>Sent emails</h3>${sent.length?`<table><thead><tr><th>Date</th><th>Lead</th><th>To</th><th>Subject</th></tr></thead><tbody>${sent.map(s=>`<tr style="cursor:default"><td>${new Date(s.at).toLocaleString()}</td><td>${esc(s.company)}</td><td>${esc(s.to)}</td><td>${esc(s.subject)}</td></tr>`).join("")}</tbody></table>`:'<div class="empty">No emails sent yet</div>'}</div>`;
- const prev=()=>$("#pv").srcdoc=asHtml($("#eb").value)||"";
- const apply=()=>{const l=lead($("#el").value),t=tpl($("#et").value);if(t){$("#esub").value=fill(t.subject,l);$("#eb").value=fill(t.html,l,true)}prev()};
- $("#el").onchange=()=>{const l=lead($("#el").value);$("#eto").value=l?.email||"";apply()};
- $("#et").onchange=apply;$("#eb").oninput=prev;
- if(emailTo){$("#eto").value=lead(emailTo)?.email||"";emailTo=null}
- $("#ec").onclick=()=>navigator.clipboard.writeText($("#eb").value).then(()=>toast("HTML copied"),()=>toast("Copy failed",true));
- const check=()=>{const to=$("#eto").value.trim();if(!/^\S+@\S+\.\S+$/.test(to)){toast("Enter a valid recipient email.",true);return}if(!$("#esub").value.trim()||!$("#eb").value.trim()){toast("Add a subject and a message.",true);return}return to};
- const log=(to)=>{const l=lead($("#el").value);if(l){(l.tl||=[]).push({type:"email",to,subject:$("#esub").value,text:toText($("#eb").value),at:Date.now()});if(l.status==="New")l.status="Contacted";save()}};
- $("#eo").onclick=()=>{const to=check();if(!to)return;log(to);location.href="mailto:"+encodeURIComponent(to)+"?subject="+encodeURIComponent($("#esub").value)+"&body="+encodeURIComponent(toText($("#eb").value));setTimeout(rEmail,400)};
- $("#es").onclick=async()=>{const to=check();if(!to)return;const b=$("#es");b.disabled=true;b.lastChild.textContent="Sending...";
-  try{await sendMail(to,lead($("#el").value)?.contact,$("#esub").value,$("#eb").value,$("#et").value);log(to);toast("Success! Your email has been sent.");rEmail()}
-  catch(e){toast(em(e)||"Something went wrong. Please try again.",true);b.disabled=false;b.lastChild.textContent="Send email"}};
+ <div class="card flush"><div style="padding:16px 18px 6px"><h3>Recently sent</h3></div>${sent.length?`<div class="tw"><table><thead><tr><th>Date</th><th>Lead</th><th>To</th><th>Subject</th></tr></thead><tbody>${sent.slice(0,30).map(s=>`<tr style="cursor:default"><td>${new Date(s.at).toLocaleString()}</td><td>${esc(s.company)}</td><td>${esc(s.to)}</td><td>${esc(s.subject)}</td></tr>`).join("")}</tbody></table></div>`:'<div class="empty">No emails sent yet</div>'}</div>`;
+ const prev=()=>{$("#pv").srcdoc=fill(asHtml($("#eb").value),recs()[0]||SAMPLE,true)};
+ const chips=()=>{const r=recs();$("#rc").innerHTML=r.length?r.slice(0,6).map(l=>`<span data-id="${l.id}" title="Remove">${esc(l.company)} &times;</span>`).join("")+(r.length>6?`<span style="cursor:default">+${r.length-6} more</span>`:"")+(r.length>1?`<span data-clear="1">Clear all</span>`:""):"";$("#mw").classList.toggle("hide",!!r.length);prev()};
+ $("#rc").onclick=e=>{const s=e.target.closest("span");if(!s)return;if(s.dataset.clear)emailIds=[];else if(s.dataset.id)emailIds=emailIds.filter(i=>i!==s.dataset.id);chips()};
+ $("#es").oninput=deb(e=>{const q=e.target.value.toLowerCase().trim(),rl=$("#rl");if(!q){rl.classList.add("hide");return}
+  const r=leads.filter(l=>l._s.includes(q)).slice(0,8);rl.innerHTML=r.map(l=>`<div data-id="${l.id}"><b>${esc(l.company)}</b> <small>${esc(toAddr(l)||"no email")} ${esc(l.city)}</small></div>`).join("")||"<div><small>No leads found</small></div>";rl.classList.remove("hide")});
+ $("#rl").onclick=e=>{const d=e.target.closest("[data-id]");if(!d)return;if(!emailIds.includes(d.dataset.id))emailIds.push(d.dataset.id);$("#es").value="";$("#rl").classList.add("hide");chips()};
+ $("#et").onchange=()=>{const t=tpl($("#et").value);if(t){$("#esub").value=t.subject;$("#eb").value=t.html}prev()};
+ $("#eb").oninput=prev;
+ $$(".chips span[data-m]").forEach(s=>s.onclick=()=>{const a=$("#eb");a.setRangeText(`{{${s.dataset.m}}}`,a.selectionStart,a.selectionEnd,"end");a.focus();prev()});
+ $("#ec").onclick=()=>navigator.clipboard.writeText(fill(asHtml($("#eb").value),recs()[0]||SAMPLE,true)).then(()=>toast("HTML copied"),()=>toast("Copy failed",true));
+ $("#send").onclick=async()=>{
+  const rs=recs(),manual=$("#eto").value.trim(),sub=$("#esub").value.trim(),body=$("#eb").value.trim();
+  if(!rs.length&&!MAIL.test(manual))return toast("Choose a lead or type a valid email address.",true);
+  if(!sub||!body)return toast("Add a subject and a message.",true);
+  const tg=rs.length?rs:[{_m:manual}];
+  if(tg.length>1&&!confirm(`Send ${tg.length} separate emails now?`))return;
+  const b=$("#send");b.disabled=true;let ok=0,fail=0,skip=0,last="";
+  for(const[i,l]of tg.entries()){
+   const to=l._m||toAddr(l);if(!to){skip++;continue}
+   b.lastChild.textContent=` Sending ${i+1}/${tg.length}`;
+   try{const html=fill(asHtml(body),l,true),s=fill(sub,l);await sendMail(to,l._m?to:cn(l),s,html);ok++;
+    if(!l._m){l.tl.push({type:"email",to,subject:s,text:toText(html).slice(0,200),at:Date.now()});if(l.status==="New")l.status="Contacted";touch(l)}}
+   catch(e){fail++;last=em(e)}
+   if(i<tg.length-1)await new Promise(r=>setTimeout(r,1100));
+  }
+  await flush();
+  toast(`Sent ${ok}${fail?`, failed ${fail}: ${last}`:""}${skip?`, skipped ${skip} (no email)`:""}`,!!fail&&!ok);
+  if(ok){emailIds=[];rEmail()}else{b.disabled=false;b.lastChild.textContent=" Send email"}
+ };
+ chips();
 }
-/* ---- Templates ---- */
+
+/* ================= TEMPLATES ================= */
 function rTpl(){
- $("#main").innerHTML=`<div class="cmd"><button class="btn p" id="nt">${ic("plus")}New template</button><button class="btn" id="bi">Add built-in designs</button></div><div class="tg">${db.templates.map(t=>`<div class="tc" data-id="${t.id}"><div class="thumb"><iframe sandbox tabindex="-1" srcdoc="${esc(fill(t.html,SAMPLE,true))}"></iframe></div><div class="in"><b>${esc(t.name)}</b><small>${esc(t.subject)}</small></div></div>`).join("")||'<div class="empty">No templates yet.</div>'}</div>`;
- $$(".tc").forEach(c=>c.onclick=()=>{editT=c.dataset.id;view="tedit";render()});
- $("#nt").onclick=()=>{editT="new";view="tedit";render()};
- $("#bi").onclick=()=>{let n=0;DEFTPL.forEach(d=>{if(!tpl(d.id)){db.templates.push(clone(d));n++}});save();toast(n?n+" design(s) added":"All built-in designs are already added");rTpl()};
+ $("#main").innerHTML=`<div class="cmd"><button class="btn p" id="nt">${ic("plus")}New template</button><button class="btn" id="bi">Restore built-in designs</button></div><div class="tg">${db.templates.map(t=>`<div class="tc" data-id="${t.id}"><div class="thumb"><iframe sandbox tabindex="-1" srcdoc="${esc(fill(t.html,SAMPLE,true))}"></iframe></div><div class="in"><b>${esc(t.name)}</b><small>${esc(t.subject)}</small></div></div>`).join("")||'<div class="empty">No templates yet.</div>'}</div>`;
+ $$(".tc").forEach(c=>c.onclick=()=>{editT=c.dataset.id;go("tedit")});
+ $("#nt").onclick=()=>{editT="new";go("tedit")};
+ $("#bi").onclick=async()=>{if(!confirm("This resets Introduction, Follow-up, Proposal and Thank you to the original designs (your own templates are not touched). Continue?"))return;
+  DEFTPL.forEach(d=>{const i=db.templates.findIndex(t=>t.id===d.id);if(i<0)db.templates.push(clone(d));else db.templates[i]=clone(d)});db.templates=dedupe(db.templates);await saveMeta();toast("Built-in designs restored");rTpl()};
 }
 function rTedit(){
  const isNew=editT==="new",t=isNew?{id:uid(),name:"",subject:"",html:DEFTPL[0].html}:tpl(editT);
  if(!t){view="tpl";return render()}
  $("#main").innerHTML=`<div class="cmd"><button class="btn" id="back">${ic("back")}Back</button><button class="btn p" id="sv">${ic("save")}Save template</button>${isNew?"":`<button class="btn" id="dup">${ic("copy")}Duplicate</button><button class="btn d" id="del">${ic("trash")}Delete</button>`}</div>
- <div class="cols" style="grid-template-columns:1fr 1fr"><div class="card"><h3>Design (HTML code)</h3><div class="grid"><div>${F("name","Template name *",t.name)}</div><div>${F("subject","Default subject",t.subject)}</div></div>
+ <div class="cols" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div class="card"><h3>Design (HTML code)</h3><div class="grid">${F("name","Template name *",t.name)}${F("subject","Default subject",t.subject)}</div>
  <label>Start from a built-in layout</label><select id="st"><option value="">-- keep my code --</option>${DEFTPL.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join("")}</select>
- <label>HTML</label><textarea id="code" class="code" spellcheck="false">${esc(t.html)}</textarea><div class="chips">${MERGE.map(m=>`<span data-m="${m}">{{${m}}}</span>`).join("")}</div><p class="hint">Click a field to insert it. Use inline styles for the best result in email apps.</p></div>
+ <label>HTML</label><textarea id="code" class="code" spellcheck="false">${esc(t.html)}</textarea><div class="chips">${MERGE.map(m=>`<span data-m="${m}">{{${m}}}</span>`).join("")}</div><p class="hint">Click a field to insert it. Use inline styles and https image links for the best result in email apps.</p></div>
  <div class="card"><h3>Live preview</h3><iframe class="pv" id="pv" sandbox style="height:560px"></iframe></div></div>`;
  const prev=()=>$("#pv").srcdoc=fill($("#code").value,SAMPLE,true);prev();
  $("#code").oninput=prev;
  $("#st").onchange=e=>{const d=DEFTPL.find(x=>x.id===e.target.value);if(d&&confirm("Replace your code with this layout?")){$("#code").value=d.html;prev()}e.target.value=""};
  $$(".chips span").forEach(s=>s.onclick=()=>{const a=$("#code");a.setRangeText(`{{${s.dataset.m}}}`,a.selectionStart,a.selectionEnd,"end");a.focus();prev()});
- $("#back").onclick=()=>{view="tpl";render()};
- $("#sv").onclick=()=>{const n=$$("[data-f]");const nm=$("[data-f=name]").value.trim();if(!nm)return toast("Enter a template name.",true);
-  t.name=nm;t.subject=$("[data-f=subject]").value.trim();t.html=$("#code").value;if(isNew)db.templates.push(t);save();toast("Template saved");view="tpl";render()};
+ $("#back").onclick=()=>go("tpl");
+ $("#sv").onclick=async()=>{const nm=$("[data-f=name]").value.trim();if(!nm)return toast("Enter a template name.",true);
+  t.name=nm;t.subject=$("[data-f=subject]").value.trim();t.html=$("#code").value;if(isNew)db.templates.push(t);await saveMeta();toast("Template saved");go("tpl")};
  if(!isNew){
-  $("#dup").onclick=()=>{db.templates.push({...clone(t),id:uid(),name:t.name+" copy"});save();toast("Template duplicated");view="tpl";render()};
-  $("#del").onclick=()=>{if(confirm("Delete this template?")){db.templates=db.templates.filter(x=>x!==t);save();view="tpl";render()}};
+  $("#dup").onclick=async()=>{db.templates.push({...clone(t),id:uid(),name:t.name+" copy"});await saveMeta();toast("Template duplicated");go("tpl")};
+  $("#del").onclick=async()=>{if(confirm("Delete this template?")){db.templates=db.templates.filter(x=>x!==t);await saveMeta();go("tpl")}};
  }
 }
-/* ---- Account ---- */
+
+/* ================= ACCOUNT ================= */
 function rAcct(){
- $("#main").innerHTML=`<div class="card" style="max-width:520px"><div class="hd"><div class="av">${esc(ini(me.name))}</div><div><h2>${esc(me.name)}</h2><small style="color:var(--mu)">${esc(me.email)}</small></div></div>
+ $("#main").innerHTML=`<div class="g2"><div class="card"><div class="hd"><div class="av">${esc(ini(me.name))}</div><div><h2>${esc(me.name)}</h2><small style="color:var(--mu)">${esc(me.email)}</small></div></div>
  <p class="hint">Your leads and templates are saved to this account${useFB?" in the cloud, so you can login from any device":" on this browser only (demo mode)"}.</p>
- <div class="cmd" style="margin:16px 0 0;box-shadow:none;padding:0;border:0"><button class="btn" id="th">Switch dark / light</button><button class="btn" id="rs">Send password reset email</button><button class="btn" id="bk">${ic("dl")}Backup (JSON)</button></div></div>`;
- $("#th").onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==="dark"?"light":"dark";ls("shcrm_theme",r.dataset.theme)};
+ <div class="cmd" style="margin:16px 0 0;box-shadow:none;padding:0;border:0"><button class="btn" id="rs">Send password reset email</button><button class="btn" id="bk">${ic("dl")}Backup (JSON)</button></div></div>
+ <div class="card"><div class="hd"><img class="logo" style="width:54px;height:54px" src="${LOGO}" alt=""><div><h2>${CO.name}</h2><small style="color:var(--mu)">Founder: <a href="${CO.founderLinkedin}" target="_blank" rel="noopener" style="color:var(--pr)">${CO.founder}</a></small></div></div>
+ <p class="hint"><a href="${CO.site}" target="_blank" rel="noopener" style="color:var(--pr)">${CO.domain}</a> &middot; <a href="${CO.linkedin}" target="_blank" rel="noopener" style="color:var(--pr)">LinkedIn</a> &middot; <a href="${CO.facebook}" target="_blank" rel="noopener" style="color:var(--pr)">Facebook</a></p></div></div>`;
  $("#rs").onclick=()=>B.reset(me.email).then(()=>toast("Reset email sent"),e=>toast(em(e),true));
- $("#bk").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:"application/json"}));a.download="crm-backup.json";a.click()};
+ $("#bk").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify({profile:db.profile,templates:db.templates,leads:leads.map(strip)},null,1)],{type:"application/json"}));a.download="crm-backup.json";a.click()};
 }
 
-/* ============ INIT ============ */
+/* ================= INIT ================= */
 if(!useFB)$("#demo").classList.remove("hide");
 try{B=await makeBackend();B.watch(u=>u?start(u):showAuth())}
-catch(e){$("#splash").innerHTML='<p style="color:#c0392b;padding:20px">Could not start: '+esc(em(e))+"</p>"}
+catch(e){$("#splash").innerHTML='<p style="color:#d6403a;padding:20px">Could not start: '+esc(em(e))+"</p>"}
 </script>
 </body>
 </html>
