@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Hub CRM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("shcrm_theme"))||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}</script>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--tx:#16202e;--mu:#5d6b7e;--bd:#e0e6ef;--pr:#1160c7;--pr2:#0b3d91;--nav:#0a1f44;--in:#f3f6fa;--ok:#12805c;--er:#c0392b;--sh:0 1px 2px rgba(16,32,60,.06),0 4px 14px rgba(16,32,60,.06);--shh:0 12px 30px rgba(16,32,60,.16)}
+:root[data-theme=dark]{--bg:#0f1520;--card:#18202e;--tx:#e9eef6;--mu:#9aa9bd;--bd:#2a3547;--pr:#4f9fe6;--pr2:#2b6fc0;--nav:#0a1220;--in:#202a3b;--sh:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);--shh:0 12px 30px rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.5 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--tx)}
+.hide{display:none!important}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:2px solid var(--pr);outline-offset:2px}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--in);border:1px solid var(--bd);border-radius:8px;padding:9px 11px;width:100%;transition:border-color .2s,box-shadow .2s,background .2s}
+input:hover,select:hover,textarea:hover{border-color:#8fa6c6}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pr);box-shadow:0 0 0 3px color-mix(in srgb,var(--pr) 22%,transparent);background:var(--card)}
+textarea{resize:vertical;min-height:90px}
+label{display:block;font-size:12px;font-weight:600;color:var(--mu);margin:12px 0 4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px 14px;font-weight:600;transition:transform .15s,box-shadow .2s,border-color .2s,background .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--sh);border-color:var(--pr)}
+.btn:active{transform:none}
+.btn.p{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;border-color:transparent}
+.btn.p:hover{box-shadow:0 8px 20px rgba(17,96,199,.4)}
+.btn.d{color:var(--er)}.btn.d:hover{border-color:var(--er)}
+.btn[disabled]{opacity:.6;pointer-events:none}
+.btn.wide{width:100%;margin-top:18px;padding:11px}
+.ic{width:17px;height:17px;flex-shrink:0}
+.lnk{background:none;border:0;color:var(--pr);font-weight:600;padding:0}.lnk:hover{text-decoration:underline}
+.c{text-align:center}
+/* auth */
+#auth{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}
+.brand{position:relative;overflow:hidden;color:#fff;padding:56px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(120deg,#0a1f44,#1160c7,#0a1f44);background-size:220% 220%;animation:flow 16s ease infinite}
+.brand::before,.brand::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07);animation:float 10s ease-in-out infinite}
+.brand::before{width:340px;height:340px;top:-90px;right:-90px}
+.brand::after{width:230px;height:230px;bottom:-60px;left:12%;animation-delay:-5s}
+.brand>*{position:relative;z-index:1}
+.brand h1{font-size:36px;line-height:1.15;margin:18px 0 12px}
+.brand p{opacity:.85;max-width:400px;margin:0 0 22px}
+.brand li{list-style:none;margin:10px 0;padding-left:26px;position:relative;opacity:.95}
+.brand li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:#7fc4ff;box-shadow:0 0 0 4px rgba(127,196,255,.25)}
+.brand ul{padding:0;margin:0}
+.logo{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.pane{display:flex;align-items:center;justify-content:center;padding:24px}
+.box{width:100%;max-width:400px;animation:rise .5s ease both}
+.box h2{margin:0 0 4px;font-size:24px}.sub{color:var(--mu);margin:0 0 10px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--bd);margin:14px 0 4px}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:9px 12px;color:var(--mu);font-weight:600;transition:color .2s,border-color .2s}
+.tabs button:hover{color:var(--tx)}.tabs button.on{color:var(--pr);border-color:var(--pr)}
+.msg{padding:9px 12px;border-radius:8px;margin-top:14px;font-size:13px;display:none}
+.msg.er{display:block;background:#fde8e6;color:#a1271b}.msg.ok{display:block;background:#dcf5ea;color:#0b5f43}
+.demo{margin-top:16px;font-size:12px;color:var(--mu);background:var(--in);border-radius:8px;padding:9px 12px}
+#splash{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:50}
+.spin{width:36px;height:36px;border:4px solid var(--bd);border-top-color:var(--pr);border-radius:50%;animation:spin .8s linear infinite}
+/* app */
+header{background:var(--nav);color:#fff;height:56px;display:flex;align-items:center;gap:12px;padding:0 18px;position:sticky;top:0;z-index:5}
+header b{font-size:16px}header .sp{flex:1}
+.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7fc4ff,#b79bff);color:#0a1f44;display:grid;place-items:center;font-weight:700;flex-shrink:0}
+header .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.3);padding:6px 10px}
+header .btn:hover{background:rgba(255,255,255,.12);border-color:#fff;box-shadow:none}
+.shell{display:flex}
+nav{width:88px;background:var(--card);border-right:1px solid var(--bd);position:sticky;top:56px;height:calc(100vh - 56px);align-self:flex-start;padding-top:8px}
+nav button{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;background:none;border:0;border-left:3px solid transparent;padding:14px 4px;color:var(--mu);font-size:11px;font-weight:600;transition:background .2s,color .2s,border-color .2s}
+nav button .ic{width:22px;height:22px;transition:transform .2s}
+nav button:hover{background:var(--in);color:var(--tx)}nav button:hover .ic{transform:scale(1.15)}
+nav button.on{border-color:var(--pr);color:var(--pr);background:var(--in)}
+main{flex:1;min-width:0;padding:20px}
+main.enter{animation:rise .35s ease both}
+.cmd{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;align-items:center;box-shadow:var(--sh)}
+.cmd .btn{border-color:transparent;background:none}.cmd .btn:hover{background:var(--in);box-shadow:none}.cmd .btn.p{background:linear-gradient(135deg,var(--pr),var(--pr2))}
+.cmd input,.cmd select{width:auto;flex:1;min-width:150px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s}
+.stat:hover{transform:translateY(-3px);box-shadow:var(--shh)}
+.stat b{font-size:26px;display:block;line-height:1.2}.stat small{color:var(--mu);font-weight:500}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:var(--sh)}
+.card h3{margin:0 0 6px;font-size:15px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
+th{color:var(--mu);font-weight:600;font-size:12px}
+tbody tr{cursor:pointer;transition:background .15s,box-shadow .15s}
+tbody tr:hover{background:var(--in);box-shadow:inset 3px 0 0 var(--pr)}
+.who{display:flex;align-items:center;gap:10px}.who .av{width:30px;height:30px;font-size:12px}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:600;background:var(--in)}
+.r-Hot{background:#fde8e6;color:#b3281b}.r-Warm{background:#fff0d3;color:#a35f00}.r-Cold{background:#e1efff;color:#0b4f9c}
+.hd{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.hd .av{width:54px;height:54px;font-size:20px}
+.hd h2{margin:0;font-size:21px}.hd .meta{margin-left:auto;display:flex;gap:22px;color:var(--mu);font-size:12px}.hd .meta b{display:block;color:var(--tx);font-size:14px}
+.stages{display:flex;margin-top:16px;gap:4px;overflow-x:auto}
+.stages button{flex:1;min-width:92px;background:var(--in);border:0;padding:11px 8px;color:var(--mu);font-weight:600;border-radius:8px;transition:background .25s,color .25s,transform .15s}
+.stages button:hover{transform:translateY(-2px);color:var(--tx)}.stages button.on{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.cols{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}
+.tl{border-left:2px solid var(--bd);padding-left:14px;margin:12px 0 0 4px}.tl div{margin-bottom:12px}.tl small{color:var(--mu);display:block}
+.empty{color:var(--mu);text-align:center;padding:30px}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.tc{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:var(--sh);transition:transform .25s,box-shadow .25s,border-color .25s}
+.tc:hover{transform:translateY(-5px);box-shadow:var(--shh);border-color:var(--pr)}
+.thumb{height:190px;overflow:hidden;background:#f3f5f9}
+.thumb iframe{width:620px;height:460px;border:0;transform:scale(.42);transform-origin:0 0;pointer-events:none;transition:transform .35s}
+.tc:hover .thumb iframe{transform:scale(.45)}
+.tc div.in{padding:12px 14px}.tc b{display:block}.tc small{color:var(--mu)}
+iframe.pv{width:100%;height:420px;border:1px solid var(--bd);border-radius:10px;background:#fff}
+.code{font-family:Consolas,"Courier New",monospace;font-size:12.5px;min-height:300px;white-space:pre}
+.chips span{display:inline-block;background:var(--in);border:1px solid var(--bd);border-radius:6px;padding:2px 8px;margin:4px 4px 0 0;cursor:pointer;font-size:12px;transition:background .15s,border-color .15s}
+.chips span:hover{background:var(--pr);color:#fff;border-color:var(--pr)}
+.hint{font-size:12px;color:var(--mu);margin:8px 0 0}
+#toasts{position:fixed;right:16px;top:70px;z-index:60;display:flex;flex-direction:column;gap:8px}
+.toast{padding:10px 16px;border-radius:10px;color:#fff;background:#12805c;box-shadow:var(--shh);max-width:320px;animation:slide .3s ease both}
+.toast.er{background:#c0392b}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes slide{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+@keyframes flow{50%{background-position:100% 50%}}
+@keyframes float{50%{transform:translateY(26px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:850px){
+ #auth{grid-template-columns:1fr}.brand{padding:32px 24px}.brand h1{font-size:26px}.brand ul{display:none}
+ .shell{display:block}
+ nav{position:fixed;bottom:0;left:0;right:0;top:auto;width:100%;height:auto;display:flex;border-right:0;border-top:1px solid var(--bd);z-index:6;padding:0}
+ nav button{border-left:0;border-top:3px solid transparent;padding:8px 2px}nav button.on{border-top-color:var(--pr)}
+ main{padding:12px 12px 90px}.grid,.cols{grid-template-columns:1fr}.hd .meta{margin-left:0;width:100%}
+ header .un{display:none}
+}
+</style>
+</head>
+<body>
+<div id="splash"><div class="spin"></div></div>
+
+<div id="auth" class="hide">
+ <section class="brand">
+  <div class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v12H3zM8 7V5h8v2"/></svg></div>
+  <h1>Manage every lead,<br>from any device.</h1>
+  <p>Track companies, move them through your sales stages and email them with ready-made designs.</p>
+  <ul><li>Your data is saved to your account</li><li>Login from your phone, laptop or office PC</li><li>Custom HTML email templates</li></ul>
+ </section>
+ <section class="pane"><div class="box">
+  <h2>Sales Hub CRM</h2><p class="sub">Sign in to manage your leads</p>
+  <div class="tabs"><button data-t="login" class="on">Login</button><button data-t="signup">Sign up</button><button data-t="forgot">Forgot password</button></div>
+  <form id="af" novalidate></form>
+  <div id="authMsg" class="msg"></div>
+  <div id="demo" class="demo hide">Demo mode: accounts are stored in this browser only. Add your Firebase config in the code to enable login from other devices.</div>
+ </div></section>
+</div>
+
+<div id="app" class="hide">
+ <header><b>Sales Hub CRM</b><span class="sp"></span><span class="un" id="who"></span><div class="av" id="av"></div><button class="btn" id="logout" title="Logout" aria-label="Logout"></button></header>
+ <div class="shell">
+  <nav id="nav"></nav>
+  <main id="main"></main>
+ </div>
+</div>
+<div id="toasts"></div>
+
+<script type="module">
+/* ============ SETTINGS ============ */
+// 1) Paste your Firebase web app config here to enable accounts that work on every device.
+const FIREBASE_CONFIG={apiKey:"",authDomain:"",projectId:"",appId:""};
+// 2) Web3Forms access key used by the Send email button.
+const W3F_KEY="8eab78cf-3828-4528-b03d-a69bb8acd562";
+// 3) EmailJS: sends the email to the LEAD from your connected Gmail, with the HTML design. Leave empty to use Web3Forms (goes to your own inbox only).
+const EMAILJS={
+ publicKey:"ZsVRQknsJwYJz6WJj",
+ serviceId:"service_tn0uz4j",
+ templateId:"template_hjmcflb", // default, used for custom templates
+ templates:{t1:"template_hjmcflb",t2:"template_27rhs7p"} // CRM template id -> EmailJS template id. Add more here later.
+};
+
+/* ============ HELPERS ============ */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const lg=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}};
+const ls=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}};
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const clone=o=>JSON.parse(JSON.stringify(o));
+const I={leads:"M3 7h18v12H3zM8 7V5h8v2",mail:"M3 5h18v14H3zM3 6l9 7 9-7",tpl:"M4 4h16v16H4zM4 9h16M10 9v11",user:"M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c0-4 4-6 8-6s8 2 8 6",plus:"M12 5v14M5 12h14",trash:"M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13",save:"M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6",back:"M15 5l-7 7 7 7",send:"M4 12l16-8-6 16-3-7z",copy:"M8 8h12v12H8zM4 4h12v3M4 4v12h3",out:"M9 4H4v16h5M16 8l4 4-4 4M20 12H9",dl:"M12 4v12M7 11l5 5 5-5M5 20h14",ext:"M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"};
+const ic=n=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${I[n]}"/></svg>`;
+function toast(t,er){const d=document.createElement("div");d.className="toast"+(er?" er":"");d.textContent=t;$("#toasts").appendChild(d);setTimeout(()=>d.remove(),3200)}
+const FR={"auth/email-already-in-use":"This email is already registered. Please login.","auth/invalid-credential":"Incorrect email or password.","auth/wrong-password":"Incorrect email or password.","auth/user-not-found":"No account found with this email.","auth/weak-password":"Password must be at least 6 characters.","auth/invalid-email":"Enter a valid email address.","auth/too-many-requests":"Too many attempts. Try again later.","auth/network-request-failed":"No internet connection.","permission-denied":"Permission denied. Check your Firestore rules."};
+const em=e=>FR[e?.code]||e?.message||"Something went wrong.";
+const countUp=el=>{const n=+el.dataset.n;if(!n||matchMedia("(prefers-reduced-motion:reduce)").matches){el.textContent=n;return}let s=null;const f=t=>{s??=t;const p=Math.min((t-s)/600,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));p<1&&requestAnimationFrame(f)};requestAnimationFrame(f)};
+
+/* ============ EMAIL TEMPLATES (built-in) ============ */
+const bt=(c,t)=>`<p><a href="mailto:{{senderEmail}}?subject=Call%20with%20World%20Tech%20Codex" style="display:inline-block;background:${c};color:#ffffff;padding:11px 22px;border-radius:6px;text-decoration:none;font-weight:bold">${t}</a></p>`;
+const T=(c,h,b)=>`<div style="background:#f3f5f9;padding:24px 12px;font-family:Arial,Helvetica,sans-serif"><table align="center" width="560" style="max-width:100%;background:#ffffff;border-radius:10px;overflow:hidden"><tr><td style="background:${c};color:#ffffff;padding:28px 30px;font-size:22px;font-weight:bold">${h}</td></tr><tr><td style="padding:28px 30px;color:#26303f;font-size:15px;line-height:1.65">${b}</td></tr><tr><td style="padding:16px 30px;background:#f3f5f9;color:#7a8696;font-size:12px">Sent by {{sender}} &middot; {{senderEmail}}</td></tr></table></div>`;
+// To add a new built-in design later: push another object here (id must be unique).
+const DEFTPL=[
+ {id:"t1",name:"Introduction",subject:"Introduction from {{sender}} - {{company}}",html:T("#1160c7","Let's work together",`<p>Dear {{contact}},</p><p>I am {{sender}} from <b>World Tech Codex</b>. I would like to introduce our services to <b>{{company}}</b> and explore how we can help your business grow.</p><p>Could we schedule a short call this week?</p>${bt("#1160c7","Book a call")}<p>Best regards,<br>{{sender}}<br>World Tech Codex</p>`)},
+ {id:"t2",name:"Follow-up",subject:"Following up - {{company}}",html:T("#1160c7","Just following up",`<p style="margin:0 0 14px">Hi {{contact}},</p><p style="margin:0 0 14px">I hope you are doing well. I reached out earlier to introduce <b>World Tech Codex</b>, and I wanted to follow up in case my message got buried in your inbox.</p><p style="margin:0 0 14px">We would love to understand the goals of <b>{{company}}</b> and share how we can help you move faster with the right technology.</p><p style="margin:0 0 20px">Would you have 15 minutes this week for a quick call?</p>${bt("#1160c7","Schedule a call")}<p style="margin:0 0 14px">If now is not the right time, just let me know and I will check back later.</p><p style="margin:0">Best regards,<br><b>{{sender}}</b><br>World Tech Codex</p>`)},
+ {id:"t3",name:"Proposal",subject:"Proposal for {{company}}",html:T("#0a1f44","Your proposal is ready",`<p>Dear {{contact}},</p><p>Thank you for your time. Our proposal for <b>{{company}}</b> is ready, and I would be happy to walk you through the details.</p>${bt("#0a1f44","View proposal")}<p>Kind regards,<br>{{sender}}</p>`)},
+ {id:"t4",name:"Thank you",subject:"Thank you, {{contact}}",html:T("#12805c","Thank you!",`<p>Dear {{contact}},</p><p>Thank you for choosing to work with us. We are delighted to support <b>{{company}}</b> and look forward to a great partnership.</p><p>Warm regards,<br>{{sender}}</p>`)}
+];
+const SAMPLE={contact:"Ali Khan",company:"Acme Ltd",email:"ali@acme.com",phone:"0300 0000000"};
+const MERGE=["contact","company","sender","senderEmail","email","phone"];
+
+/* ============ BACKEND (Firebase or local demo) ============ */
+const useFB=!!FIREBASE_CONFIG.apiKey;
+async function makeBackend(){
+ if(useFB){
+  const b="https://www.gstatic.com/firebasejs/10.12.2/";
+  const [{initializeApp},A,S]=await Promise.all([import(b+"firebase-app.js"),import(b+"firebase-auth.js"),import(b+"firebase-firestore.js")]);
+  const app=initializeApp(FIREBASE_CONFIG),au=A.getAuth(app),fs=S.getFirestore(app);
+  return{
+   signup:async(n,e,p)=>{const c=await A.createUserWithEmailAndPassword(au,e,p);try{await A.updateProfile(c.user,{displayName:n})}catch(x){}},
+   login:(e,p)=>A.signInWithEmailAndPassword(au,e,p),
+   reset:e=>A.sendPasswordResetEmail(au,e),
+   logout:()=>A.signOut(au),
+   watch:cb=>A.onAuthStateChanged(au,u=>cb(u&&{id:u.uid,name:u.displayName||u.email.split("@")[0],email:u.email})),
+   load:async id=>{const d=await S.getDoc(S.doc(fs,"crm",id));return d.exists()?d.data():null},
+   save:(id,d)=>S.setDoc(S.doc(fs,"crm",id),d)
+  };
+ }
+ const hash=async p=>[...new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode("shcrm:"+p)))].map(x=>x.toString(16).padStart(2,"0")).join("");
+ let cb;const out=u=>u&&{id:u.email,name:u.name,email:u.email};
+ const set=u=>{ls("shcrm_s",u?u.email:null);cb&&cb(out(u))};
+ return{
+  signup:async(n,e,p)=>{const us=lg("shcrm_u")||{};if(us[e])throw{code:"auth/email-already-in-use"};us[e]={name:n,email:e,ph:await hash(p)};ls("shcrm_u",us);set(us[e])},
+  login:async(e,p)=>{const u=(lg("shcrm_u")||{})[e];if(!u||u.ph!==await hash(p))throw{code:"auth/invalid-credential"};set(u)},
+  reset:async()=>{throw{message:"Password reset emails need Firebase. See setup steps."}},
+  logout:async()=>set(null),
+  watch:f=>{cb=f;const e=lg("shcrm_s");f(out(e&&(lg("shcrm_u")||{})[e]))},
+  load:async id=>lg("shcrm_d_"+id),
+  save:async(id,d)=>{if(!ls("shcrm_d_"+id,d))throw Error("Browser storage is full or blocked.")}
+ };
+}
+
+/* ============ STATE ============ */
+let B,me=null,db=null,view="leads",editId=null,editT=null,emailTo=null,pendingName="",filter={q:"",stage:""};
+const STAGES=["Qualify","Develop","Propose","Close"];
+const persist=()=>B.save(me.id,clone(db));
+const save=()=>persist().catch(e=>toast(em(e),true));
+const lead=id=>db.leads.find(l=>l.id===id);
+const tpl=id=>db.templates.find(t=>t.id===id);
+const ini=s=>(s||"?").trim()[0].toUpperCase();
+const fill=(s,l,h)=>{const v={contact:l?.contact||"there",company:l?.company||"your company",sender:me.name,senderEmail:me.email,email:l?.email||"",phone:l?.phone||""};return s.replace(/\{\{(\w+)\}\}/g,(m,k)=>k in v?(h?esc(v[k]):v[k]):m)};
+const asHtml=s=>/<[a-z][\s\S]*>/i.test(s)?s:'<div style="white-space:pre-wrap;font-family:Arial,sans-serif;padding:12px">'+esc(s)+"</div>";
+const toText=h=>{const d=new DOMParser().parseFromString(asHtml(h).replace(/<\/(p|div|tr|h\d)>|<br\s*\/?>/gi,"$&\n"),"text/html");d.querySelectorAll("style,script").forEach(x=>x.remove());return d.body.textContent.replace(/[ \t]+\n/g,"\n").replace(/\n{3,}/g,"\n\n").trim()};
+
+/* ============ AUTH UI ============ */
+let atab="login";
+const authMsg=(t,ok)=>{const m=$("#authMsg");m.textContent=t||"";m.className="msg"+(t?(ok?" ok":" er"):"")};
+function renderAuth(){
+ $$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===atab));authMsg("");
+ $("#af").innerHTML={
+  login:`<label>Email</label><input id="e" type="email" autocomplete="email"><label>Password</label><input id="p" type="password" autocomplete="current-password"><button class="btn p wide" id="go">Login</button><p class="c"><button type="button" class="lnk" data-t="forgot">Forgot password?</button></p>`,
+  signup:`<label>Full name</label><input id="n" autocomplete="name"><label>Email</label><input id="e" type="email" autocomplete="email"><label>Password (min 6 characters)</label><input id="p" type="password" autocomplete="new-password"><label>Confirm password</label><input id="c" type="password" autocomplete="new-password"><button class="btn p wide" id="go">Create account</button>`,
+  forgot:`<p class="sub">Enter your email and we'll send you a reset link.</p><label>Email</label><input id="e" type="email" autocomplete="email"><button class="btn p wide" id="go">Send reset link</button>`
+ }[atab];
+ $$("#af [data-t]").forEach(b=>b.onclick=()=>{atab=b.dataset.t;renderAuth()});
+}
+$$(".tabs button").forEach(b=>b.onclick=()=>{atab=b.dataset.t;renderAuth()});
+$("#af").onsubmit=async ev=>{
+ ev.preventDefault();
+ const g=i=>($("#"+i)?.value||"").trim(),p=$("#p")?.value||"",e=g("e").toLowerCase(),btn=$("#go"),old=btn.textContent;
+ if(!/^\S+@\S+\.\S+$/.test(e))return authMsg("Enter a valid email address.");
+ try{
+  if(atab==="signup"){
+   if(!g("n"))return authMsg("Please enter your name.");
+   if(p.length<6)return authMsg("Password must be at least 6 characters.");
+   if(p!==$("#c").value)return authMsg("Passwords do not match.");
+   btn.disabled=true;btn.textContent="Creating account...";pendingName=g("n");await B.signup(pendingName,e,p);
+  }else if(atab==="login"){
+   if(!p)return authMsg("Enter your password.");
+   btn.disabled=true;btn.textContent="Signing in...";await B.login(e,p);
+  }else{btn.disabled=true;btn.textContent="Sending...";await B.reset(e);authMsg("Reset link sent. Check your inbox.",true)}
+ }catch(x){authMsg(em(x))}
+ finally{btn.disabled=false;btn.textContent=old}
+};
+function showAuth(){me=db=null;$("#splash").classList.add("hide");$("#app").classList.add("hide");$("#auth").classList.remove("hide");atab="login";renderAuth()}
+async function start(u){
+ let created=false;
+ try{db=await B.load(u.id)}catch(e){toast("Could not load your data: "+em(e),true);return B.logout()}
+ me=u;
+ if(!db){db={profile:{name:pendingName||u.name},leads:[],templates:clone(DEFTPL)};created=true}
+ db.leads||=[];db.templates||=clone(DEFTPL);
+ if(db.profile?.name)me.name=db.profile.name;
+ if(created)await persist().catch(e=>toast(em(e),true));
+ $("#splash").classList.add("hide");$("#auth").classList.add("hide");$("#app").classList.remove("hide");
+ $("#who").textContent=me.name;$("#av").textContent=ini(me.name);
+ view="leads";editId=null;render();
+}
+$("#logout").innerHTML=ic("out");$("#logout").onclick=()=>B.logout();
+$("#nav").innerHTML=[["leads","Leads"],["email","Email"],["tpl","Templates"],["acct","Account"]].map(([v,t])=>`<button data-v="${v}">${ic(v==="acct"?"user":v==="tpl"?"tpl":v)}${t}</button>`).join("");
+$$("#nav button").forEach(b=>b.onclick=()=>{view=b.dataset.v;editId=editT=null;render()});
+
+/* ============ RENDER ============ */
+function render(){
+ $$("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===view||(view==="lead"&&b.dataset.v==="leads")||(view==="tedit"&&b.dataset.v==="tpl")));
+ const m=$("#main");m.classList.remove("enter");void m.offsetWidth;m.classList.add("enter");
+ ({leads:rLeads,lead:rLead,email:rEmail,tpl:rTpl,tedit:rTedit,acct:rAcct})[view]();
+ window.scrollTo(0,0);
+}
+function rLeads(){
+ const s=db.leads,cnt=x=>s.filter(l=>l.stage===x).length;
+ $("#main").innerHTML=`<div class="cmd"><button class="btn p" id="new">${ic("plus")}New lead</button><input id="q" placeholder="Search company, contact, email..." value="${esc(filter.q)}"><select id="fs"><option value="">All stages</option>${STAGES.map(x=>`<option ${filter.stage===x?"selected":""}>${x}</option>`).join("")}</select><button class="btn" id="csv">${ic("dl")}Export CSV</button></div>
+ <div class="stats"><div class="stat"><b data-n="${s.length}">0</b><small>Total leads</small></div>${STAGES.map(x=>`<div class="stat"><b data-n="${cnt(x)}">0</b><small>${x}</small></div>`).join("")}</div><div class="card tw" id="lt"></div>`;
+ $$("[data-n]").forEach(countUp);
+ const rows=()=>{const q=filter.q.toLowerCase(),list=s.filter(l=>(!filter.stage||l.stage===filter.stage)&&(!q||[l.company,l.trading,l.contact,l.email,l.vcode].join(" ").toLowerCase().includes(q))).sort((a,b)=>b.created-a.created);
+  $("#lt").innerHTML=list.length?`<table><thead><tr><th>Company</th><th>Contact</th><th>Email</th><th>Phone</th><th>Rating</th><th>Stage</th></tr></thead><tbody>${list.map(l=>`<tr data-id="${l.id}"><td><div class="who"><div class="av">${esc(ini(l.company))}</div><div><b>${esc(l.company)}</b><br><small style="color:var(--mu)">${esc(l.trading)}</small></div></div></td><td>${esc(l.contact)}</td><td>${esc(l.email)}</td><td>${esc(l.phone)}</td><td><span class="tag r-${esc(l.rating)}">${esc(l.rating)}</span></td><td>${esc(l.stage)}</td></tr>`).join("")}</tbody></table>`:`<div class="empty">${s.length?"No leads match your search.":'No leads yet. Select "New lead" to add your first company.'}</div>`;
+  $$("#lt tbody tr").forEach(r=>r.onclick=()=>{editId=r.dataset.id;view="lead";render()})};
+ rows();
+ $("#new").onclick=()=>{editId="new";view="lead";render()};
+ $("#q").oninput=e=>{filter.q=e.target.value;rows()};
+ $("#fs").onchange=e=>{filter.stage=e.target.value;rows()};
+ $("#csv").onclick=()=>{const h=["company","trading","contact","email","phone","orgType","leadStage","vcode","rating","status","source","address","stage","notes"];
+  const c=[h.join(",")].concat(s.map(l=>h.map(k=>'"'+String(l[k]??"").replace(/"/g,'""')+'"').join(","))).join("\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([c],{type:"text/csv"}));a.download="leads.csv";a.click()};
+}
+const F=(k,l,v,t="text")=>`<label>${l}</label><input data-f="${k}" type="${t}" value="${esc(v)}">`;
+const SEL=(k,l,v,o)=>`<label>${l}</label><select data-f="${k}">${o.map(x=>`<option ${x===v?"selected":""}>${x}</option>`).join("")}</select>`;
+function rLead(){
+ const isNew=editId==="new";
+ const l=isNew?{id:uid(),company:"",trading:"",contact:"",email:"",phone:"",orgType:"Private",leadStage:"Targeted",vcode:"",rating:"Warm",status:"New",source:"",address:"",stage:"Qualify",notes:"",tl:[],created:Date.now()}:lead(editId);
+ if(!l){view="leads";return render()}
+ const tl=(l.tl||[]).slice().reverse();
+ $("#main").innerHTML=`<div class="cmd"><button class="btn" id="back">${ic("back")}Back</button><button class="btn p" id="sv">${ic("save")}Save</button><button class="btn" id="sc">Save &amp; close</button>${isNew?"":`<button class="btn" id="em">${ic("mail")}Email</button><button class="btn d" id="del">${ic("trash")}Delete</button>`}</div>
+ <div class="card"><div class="hd"><div class="av">${esc(ini(l.contact||l.company))}</div><div><h2>${esc(l.company||"New lead")}</h2><small style="color:var(--mu)">${isNew?"Unsaved lead":esc(l.contact)}</small></div><div class="meta"><div><b>${esc(l.source||"-")}</b>Lead source</div><div><b>${esc(l.rating)}</b>Rating</div><div><b>${esc(l.status)}</b>Status</div></div></div>
+ <div class="stages" id="stg">${STAGES.map(x=>`<button data-s="${x}" class="${l.stage===x?"on":""}">${x}</button>`).join("")}</div></div>
+ <div class="cols"><div class="card"><h3>Company details</h3><div class="grid"><div>${F("company","Company *",l.company)}${F("trading","Trading name",l.trading)}${SEL("orgType","Organization type",l.orgType,["Private","Public","Partnership","Sole proprietor","Non-profit","Other"])}${SEL("leadStage","Lead stage",l.leadStage,["Targeted","Contacted","Meeting set","Negotiating","Won","Lost"])}${F("vcode","VCode",l.vcode)}</div><div>${F("contact","Contact name",l.contact)}${F("email","Email",l.email,"email")}${F("phone","Phone",l.phone,"tel")}${SEL("rating","Rating",l.rating,["Hot","Warm","Cold"])}${SEL("status","Status",l.status,["New","Contacted","Qualified","Lost"])}${F("source","Lead source",l.source)}</div></div>${F("address","Address",l.address)}<label>Notes</label><textarea data-f="notes">${esc(l.notes)}</textarea></div>
+ <div class="card"><h3>Timeline</h3>${isNew?'<div class="empty">Save the lead to add notes and emails.</div>':`<textarea id="nt" placeholder="Write a note..." style="min-height:64px"></textarea><button class="btn p" id="an" style="margin-top:8px">Add note</button><div class="tl">${tl.map(t=>`<div><b>${t.type==="email"?"Email sent":"Note"}</b>${t.type==="email"?": "+esc(t.subject):""}<br>${esc((t.text||"").slice(0,160))}<small>${new Date(t.at).toLocaleString()}</small></div>`).join("")||'<div class="empty">No activity yet</div>'}</div>`}</div></div>`;
+ const read=()=>$$("[data-f]").forEach(i=>l[i.dataset.f]=i.value.trim());
+ const commit=()=>{read();if(!l.company){toast("Company name is required.",true);return false}if(isNew&&!lead(l.id))db.leads.push(l);l.tl||=[];save();return true};
+ $("#back").onclick=()=>{view="leads";editId=null;render()};
+ $("#sv").onclick=()=>{if(commit()){toast("Lead saved");editId=l.id;render()}};
+ $("#sc").onclick=()=>{if(commit()){view="leads";editId=null;render()}};
+ $$("#stg button").forEach(b=>b.onclick=()=>{l.stage=b.dataset.s;if(!isNew)save();$$("#stg button").forEach(x=>x.classList.toggle("on",x===b))});
+ if(!isNew){
+  $("#del").onclick=()=>{if(confirm("Delete this lead?")){db.leads=db.leads.filter(x=>x.id!==l.id);save();view="leads";editId=null;render()}};
+  $("#em").onclick=()=>{if(commit()){emailTo=l.id;view="email";render()}};
+  $("#an").onclick=()=>{const t=$("#nt").value.trim();if(!t)return;read();l.tl.push({type:"note",text:t,at:Date.now()});save();render()};
+ }
+}
+/* ---- Email ---- */
+async function sendWeb3(to,name,sub,html){
+ const fd=new FormData();
+ fd.append("access_key",W3F_KEY);fd.append("subject",sub);fd.append("from_name",me.name+" - Sales Hub CRM");
+ fd.append("name",name||to);fd.append("email",to);
+ fd.append("message","To: "+to+"\n\n"+toText(html));
+ const r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd}),d=await r.json();
+ if(!r.ok||d.success===false)throw Error(d.message||"Email could not be sent.");
+}
+async function sendMail(to,name,sub,html,tid){
+ if(!EMAILJS.publicKey)return sendWeb3(to,name,sub,html);
+ const r=await fetch("https://api.emailjs.com/api/v1.0/email/send",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({service_id:EMAILJS.serviceId,template_id:EMAILJS.templates[tid]||EMAILJS.templateId,user_id:EMAILJS.publicKey,template_params:{to_email:to,to_name:name||to,from_name:me.name,reply_to:me.email,subject:sub,message_html:asHtml(html),message:toText(html)}})});
+ if(!r.ok)throw Error((await r.text())||"Email could not be sent.");
+}
+function rEmail(){
+ const sent=[];db.leads.forEach(l=>(l.tl||[]).forEach(t=>t.type==="email"&&sent.push({...t,company:l.company})));sent.sort((a,b)=>b.at-a.at);
+ $("#main").innerHTML=`<div class="cols"><div class="card"><h3>Compose email</h3>
+ <label>From</label><input value="${esc(me.name)} <${esc(me.email)}>" disabled>
+ <div class="grid"><div><label>Lead</label><select id="el"><option value="">-- select lead --</option>${db.leads.map(l=>`<option value="${l.id}" ${l.id===emailTo?"selected":""}>${esc(l.company)}${l.contact?" - "+esc(l.contact):""}</option>`).join("")}</select></div><div><label>Template</label><select id="et"><option value="">-- none --</option>${db.templates.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join("")}</select></div></div>
+ <label>To</label><input id="eto" type="email" placeholder="recipient@company.com"><label>Subject</label><input id="esub">
+ <label>Message (plain text or HTML)</label><textarea id="eb" class="code" style="min-height:200px;white-space:pre-wrap"></textarea>
+ <div class="cmd" style="margin:14px 0 0;box-shadow:none;border:0;padding:0"><button class="btn p" id="es">${ic("send")}Send email</button><button class="btn" id="eo">${ic("ext")}Open in email app</button><button class="btn" id="ec">${ic("copy")}Copy HTML</button></div></div>
+ <div class="card"><h3>Preview</h3><iframe class="pv" id="pv" sandbox></iframe></div></div>
+ <div class="card tw"><h3>Sent emails</h3>${sent.length?`<table><thead><tr><th>Date</th><th>Lead</th><th>To</th><th>Subject</th></tr></thead><tbody>${sent.map(s=>`<tr style="cursor:default"><td>${new Date(s.at).toLocaleString()}</td><td>${esc(s.company)}</td><td>${esc(s.to)}</td><td>${esc(s.subject)}</td></tr>`).join("")}</tbody></table>`:'<div class="empty">No emails sent yet</div>'}</div>`;
+ const prev=()=>$("#pv").srcdoc=asHtml($("#eb").value)||"";
+ const apply=()=>{const l=lead($("#el").value),t=tpl($("#et").value);if(t){$("#esub").value=fill(t.subject,l);$("#eb").value=fill(t.html,l,true)}prev()};
+ $("#el").onchange=()=>{const l=lead($("#el").value);$("#eto").value=l?.email||"";apply()};
+ $("#et").onchange=apply;$("#eb").oninput=prev;
+ if(emailTo){$("#eto").value=lead(emailTo)?.email||"";emailTo=null}
+ $("#ec").onclick=()=>navigator.clipboard.writeText($("#eb").value).then(()=>toast("HTML copied"),()=>toast("Copy failed",true));
+ const check=()=>{const to=$("#eto").value.trim();if(!/^\S+@\S+\.\S+$/.test(to)){toast("Enter a valid recipient email.",true);return}if(!$("#esub").value.trim()||!$("#eb").value.trim()){toast("Add a subject and a message.",true);return}return to};
+ const log=(to)=>{const l=lead($("#el").value);if(l){(l.tl||=[]).push({type:"email",to,subject:$("#esub").value,text:toText($("#eb").value),at:Date.now()});if(l.status==="New")l.status="Contacted";save()}};
+ $("#eo").onclick=()=>{const to=check();if(!to)return;log(to);location.href="mailto:"+encodeURIComponent(to)+"?subject="+encodeURIComponent($("#esub").value)+"&body="+encodeURIComponent(toText($("#eb").value));setTimeout(rEmail,400)};
+ $("#es").onclick=async()=>{const to=check();if(!to)return;const b=$("#es");b.disabled=true;b.lastChild.textContent="Sending...";
+  try{await sendMail(to,lead($("#el").value)?.contact,$("#esub").value,$("#eb").value,$("#et").value);log(to);toast("Success! Your email has been sent.");rEmail()}
+  catch(e){toast(em(e)||"Something went wrong. Please try again.",true);b.disabled=false;b.lastChild.textContent="Send email"}};
+}
+/* ---- Templates ---- */
+function rTpl(){
+ $("#main").innerHTML=`<div class="cmd"><button class="btn p" id="nt">${ic("plus")}New template</button><button class="btn" id="bi">Add built-in designs</button></div><div class="tg">${db.templates.map(t=>`<div class="tc" data-id="${t.id}"><div class="thumb"><iframe sandbox tabindex="-1" srcdoc="${esc(fill(t.html,SAMPLE,true))}"></iframe></div><div class="in"><b>${esc(t.name)}</b><small>${esc(t.subject)}</small></div></div>`).join("")||'<div class="empty">No templates yet.</div>'}</div>`;
+ $$(".tc").forEach(c=>c.onclick=()=>{editT=c.dataset.id;view="tedit";render()});
+ $("#nt").onclick=()=>{editT="new";view="tedit";render()};
+ $("#bi").onclick=()=>{let n=0;DEFTPL.forEach(d=>{if(!tpl(d.id)){db.templates.push(clone(d));n++}});save();toast(n?n+" design(s) added":"All built-in designs are already added");rTpl()};
+}
+function rTedit(){
+ const isNew=editT==="new",t=isNew?{id:uid(),name:"",subject:"",html:DEFTPL[0].html}:tpl(editT);
+ if(!t){view="tpl";return render()}
+ $("#main").innerHTML=`<div class="cmd"><button class="btn" id="back">${ic("back")}Back</button><button class="btn p" id="sv">${ic("save")}Save template</button>${isNew?"":`<button class="btn" id="dup">${ic("copy")}Duplicate</button><button class="btn d" id="del">${ic("trash")}Delete</button>`}</div>
+ <div class="cols" style="grid-template-columns:1fr 1fr"><div class="card"><h3>Design (HTML code)</h3><div class="grid"><div>${F("name","Template name *",t.name)}</div><div>${F("subject","Default subject",t.subject)}</div></div>
+ <label>Start from a built-in layout</label><select id="st"><option value="">-- keep my code --</option>${DEFTPL.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join("")}</select>
+ <label>HTML</label><textarea id="code" class="code" spellcheck="false">${esc(t.html)}</textarea><div class="chips">${MERGE.map(m=>`<span data-m="${m}">{{${m}}}</span>`).join("")}</div><p class="hint">Click a field to insert it. Use inline styles for the best result in email apps.</p></div>
+ <div class="card"><h3>Live preview</h3><iframe class="pv" id="pv" sandbox style="height:560px"></iframe></div></div>`;
+ const prev=()=>$("#pv").srcdoc=fill($("#code").value,SAMPLE,true);prev();
+ $("#code").oninput=prev;
+ $("#st").onchange=e=>{const d=DEFTPL.find(x=>x.id===e.target.value);if(d&&confirm("Replace your code with this layout?")){$("#code").value=d.html;prev()}e.target.value=""};
+ $$(".chips span").forEach(s=>s.onclick=()=>{const a=$("#code");a.setRangeText(`{{${s.dataset.m}}}`,a.selectionStart,a.selectionEnd,"end");a.focus();prev()});
+ $("#back").onclick=()=>{view="tpl";render()};
+ $("#sv").onclick=()=>{const n=$$("[data-f]");const nm=$("[data-f=name]").value.trim();if(!nm)return toast("Enter a template name.",true);
+  t.name=nm;t.subject=$("[data-f=subject]").value.trim();t.html=$("#code").value;if(isNew)db.templates.push(t);save();toast("Template saved");view="tpl";render()};
+ if(!isNew){
+  $("#dup").onclick=()=>{db.templates.push({...clone(t),id:uid(),name:t.name+" copy"});save();toast("Template duplicated");view="tpl";render()};
+  $("#del").onclick=()=>{if(confirm("Delete this template?")){db.templates=db.templates.filter(x=>x!==t);save();view="tpl";render()}};
+ }
+}
+/* ---- Account ---- */
+function rAcct(){
+ $("#main").innerHTML=`<div class="card" style="max-width:520px"><div class="hd"><div class="av">${esc(ini(me.name))}</div><div><h2>${esc(me.name)}</h2><small style="color:var(--mu)">${esc(me.email)}</small></div></div>
+ <p class="hint">Your leads and templates are saved to this account${useFB?" in the cloud, so you can login from any device":" on this browser only (demo mode)"}.</p>
+ <div class="cmd" style="margin:16px 0 0;box-shadow:none;padding:0;border:0"><button class="btn" id="th">Switch dark / light</button><button class="btn" id="rs">Send password reset email</button><button class="btn" id="bk">${ic("dl")}Backup (JSON)</button></div></div>`;
+ $("#th").onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==="dark"?"light":"dark";ls("shcrm_theme",r.dataset.theme)};
+ $("#rs").onclick=()=>B.reset(me.email).then(()=>toast("Reset email sent"),e=>toast(em(e),true));
+ $("#bk").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:"application/json"}));a.download="crm-backup.json";a.click()};
+}
+
+/* ============ INIT ============ */
+if(!useFB)$("#demo").classList.remove("hide");
+try{B=await makeBackend();B.watch(u=>u?start(u):showAuth())}
+catch(e){$("#splash").innerHTML='<p style="color:#c0392b;padding:20px">Could not start: '+esc(em(e))+"</p>"}
+</script>
+</body>
+</html>
