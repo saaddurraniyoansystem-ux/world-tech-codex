@@ -6,7 +6,30 @@
 <title>Sales Hub CRM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("shcrm_theme"))||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}</script>
-<style>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC_M_5F6ptrIL0Z8tRbLbYsW8lcZPVasjQ",
+    authDomain: "world-tech-codex.firebaseapp.com",
+    projectId: "world-tech-codex",
+    storageBucket: "world-tech-codex.firebasestorage.app",
+    messagingSenderId: "926484509536",
+    appId: "1:926484509536:web:0f4d9b3cff18e413b6e405",
+    measurementId: "G-KPMWKD26V2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+ <style>
 :root{--bg:#eef1f6;--card:#fff;--tx:#16202e;--mu:#5d6b7e;--bd:#e0e6ef;--pr:#1160c7;--pr2:#0b3d91;--nav:#0a1f44;--in:#f3f6fa;--ok:#12805c;--er:#c0392b;--sh:0 1px 2px rgba(16,32,60,.06),0 4px 14px rgba(16,32,60,.06);--shh:0 12px 30px rgba(16,32,60,.16)}
 :root[data-theme=dark]{--bg:#0f1520;--card:#18202e;--tx:#e9eef6;--mu:#9aa9bd;--bd:#2a3547;--pr:#4f9fe6;--pr2:#2b6fc0;--nav:#0a1220;--in:#202a3b;--sh:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);--shh:0 12px 30px rgba(0,0,0,.45)}
 *{box-sizing:border-box}
